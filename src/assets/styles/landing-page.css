@@ -1,4 +1,3 @@
-@import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css";
 @import "https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css";
 @import "https://unicons.iconscout.com/release/v4.0.0/css/line.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css";
@@ -67,6 +66,9 @@ body[data-bs-theme='dark'] .home {
 }
 body[data-bs-theme='dark'] .navbar .navbar-nav .nav-link.active {
   color: #0076a3 !important;
+}
+.collapse{
+  visibility: visible;
 }
 @media (min-width: 200px) and (max-width: 1024px) {
   .navbar-custom {
@@ -1840,6 +1842,9 @@ body[data-bs-theme='dark'] .title h6 {
   min-height: 100vh;
   align-items: center;
   display: flex;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .home-5 .more-profile .top-child {
   margin-left: -15px;
@@ -2121,14 +2126,25 @@ body[data-bs-theme='dark'] .features-box h6 {
 .app-slider .swiper-container {
   padding: 18px 0 50px 0;
 }
-.swiper-slide{
-  width: 184px !important;
+.swiper-slide {
+  width: 183px !important;
+  height: 340px !important;
+  margin-right: 50px !important;
+}
+
+.swiper-container {
+
+  margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .app-slider .swiper-container .fream-phone {
   position: absolute;
   z-index: 9;
-  left: 51%;
+  left: 50%;
   transform: translate(-50%);
   top: 0;
   height: auto;
@@ -2517,3 +2533,4 @@ body[data-bs-theme='dark'] .bottom-footer {
     color: #fff !important;
 
 }
+

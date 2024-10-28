@@ -107,33 +107,33 @@ var slider = tns({
 
 // ********* swiper slider ** app Slider **
 
-new Swiper('.swiper-container', {
-  loop: true,
-  slidesPerView: 3,
-  paginationClickable: true,
-  spaceBetween: 20,
-  pagination: '.swiper-pagination',
-  slidesPerView: 'auto',
-  paginationClickable: true,
-  spaceBetween: 0,
-  centeredSlides: true,
-  speed: 5000,
-  autoplay: true,
-  breakpoints: {
-    1920: {
-      slidesPerView: 5,
-      spaceBetween: 50
-    },
-    992: {
-      slidesPerView: 3,
-      spaceBetween: 30
-    },
-    768: {
-      slidesPerView: 1,
-      spaceBetween: 30
-    }
-  }
-});
+// new Swiper('.swiper-container', {
+//   loop: true,
+//   slidesPerView: 3,
+//   paginationClickable: true,
+//   spaceBetween: 20,
+//   pagination: '.swiper-pagination',
+//   slidesPerView: 'auto',
+//   paginationClickable: true,
+//   spaceBetween: 0,
+//   centeredSlides: true,
+//   speed: 5000,
+//   autoplay: true,
+//   breakpoints: {
+//     1920: {
+//       slidesPerView: 5,
+//       spaceBetween: 50
+//     },
+//     992: {
+//       slidesPerView: 3,
+//       spaceBetween: 30
+//     },
+//     768: {
+//       slidesPerView: 1,
+//       spaceBetween: 30
+//     }
+//   }
+// });
 
 
 
