@@ -5,6 +5,7 @@ import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
 import { Image } from 'astro:assets';
 // Navbar
 import logoLight from './images/logo-light.png';
+import BrandLogo from '@components/BrandLogo.astro';
 import logoDark from './images/logo-dark.png';
 
 // Home section
@@ -51,7 +52,7 @@ import Teamimg4 from './images/team/img4.png';
 //cta
 import appStoreImage from './images/img-appstore.png';
 import googlePlayImage from './images/img-googleplay.png';
-import ctaBgImage from './images/cta-bg.png';
+import ctaBgImage from './images/cta-bg.webp';
 
 //footer
 import logoFooter from './images/logo-footer.png';
@@ -70,13 +71,14 @@ import logoFooter from './images/logo-footer.png';
     <div class="container-fluid">
       <!-- LOGO -->
       <a class="navbar-brand logo text-uppercase" href="index-1.html">
-        <Image
+        <!-- <Image
           src={logoLight}
           class="logo-light"
           alt="Logo Light"
           height={30}
-        />
-        <Image src={logoDark} class="logo-dark" alt="Logo Dark" height={30} />
+        /> -->
+        <BrandLogo class="h-auto w-44" />
+        <!-- <Image src={logoDark} class="logo-dark" alt="Logo Dark" height={30} /> -->
       </a>
 
       <button
@@ -116,7 +118,7 @@ import logoFooter from './images/logo-footer.png';
           </li>
         </ul>
         <div class="ms-auto">
-          <a href="#" class="btn bg-gradiant">Login</a>
+          <a href="#" class="btn bg-gradiant">Download</a>
         </div>
       </div>
     </div>
@@ -124,32 +126,35 @@ import logoFooter from './images/logo-footer.png';
   <!-- END NAVBAR -->
 
   <!-- home section -->
-  <section
+  <!-- <section
     class="home-5"
     id="home"
     style={`background-image: url(${homeBackground.src})`}
-  >
+  > -->
+  <section class="home-5" id="home">
     <!-- start container -->
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="waav">
-            <span style="--a:1">W</span>
-            <span style="--a:2">E</span>
-            <span style="--a:3">L</span>
-            <span style="--a:4">C</span>
-            <span style="--a:5">O</span>
-            <span style="--a:6">M</span>
-            <span style="--a:7">E</span>
+            <span style="--a:1">C</span>
+            <span style="--a:2">R</span>
+            <span style="--a:3">A</span>
+            <span style="--a:4">W</span>
+            <span style="--a:5">L</span>
+            <span style="--a:6">O</span>
+            <span style="--a:7">R</span>
+            <span style="--a:8">A</span>
           </div>
-          <h1 class="mt-3">Connecting all your storange together</h1>
+          <h1 class="mt-3">Find data at scale with Crawlora</h1>
           <p class="text-muted mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-            voluptatibus aperiam distinctio rerum? Voluptates quos nulla,
-            voluptatem earum placeat ducimus nesciunt dolores.
+            Crawlora is a data aggregation tool for marketers, automating data
+            crawling and real-time analysis from platforms like Amazon and
+            Google. It delivers actionable insights with secure, scalable data
+            handling for businesses of all sizes.
           </p>
 
-          <form class="mt-5">
+          <!-- <form class="mt-5">
             <div class="row align-items-center">
               <div class="col-8">
                 <div class="form-group">
@@ -166,7 +171,7 @@ import logoFooter from './images/logo-footer.png';
                 <button class="btn btn-big btn-primary">Get Started</button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <div class="d-flex align-items-center mt-5">
             <div class="flex-shrink-0">
@@ -200,7 +205,7 @@ import logoFooter from './images/logo-footer.png';
             <div class="flex-grow-1 ms-3">
               <h6 class="mb-0">99+ user</h6>
               <p class="fw-semibold text-muted mb-0">
-                Connecting all your storages together
+                Turning Data into Actionable Insights, Seamlessly.
               </p>
             </div>
           </div>
@@ -222,11 +227,11 @@ import logoFooter from './images/logo-footer.png';
         <div class="col-lg-6">
           <div class="title mb-5 text-center">
             <h6 class="fw-bold text-primary mb-0">What We Do?</h6>
-            <h2 class="f-40">How can help you!</h2>
+            <h2 class="f-40">How Can This Tool Benefit You?</h2>
             <div class="border-phone">
               <p class="text-muted">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                eos inventore omnis aliquid rerum alias molestias.
+                Discover How Crawlora Can Transform Your Data into Valuable
+                Business Insights.
               </p>
             </div>
           </div>
@@ -245,11 +250,13 @@ import logoFooter from './images/logo-footer.png';
 
             <div class="service-content mt-4">
               <a href="#">
-                <h5 class="fw-bold">Fully Secured</h5>
+                <h5 class="fw-bold">Streamlined Data Aggregation</h5>
               </a>
               <p class="text-muted">
-                Lorem ipsum dolor sit amet, adipiscing elit. Phasellus
-                hendrerit. Pellentesque aliquet nibh nec urna.
+                Crawlora automates the process of collecting data from multiple
+                online platforms, saving you time and effort while ensuring you
+                have access to comprehensive insights for informed
+                decision-making.
               </p>
             </div>
           </div>
@@ -266,11 +273,13 @@ import logoFooter from './images/logo-footer.png';
 
             <div class="service-content mt-4">
               <a href="#">
-                <h5 class="fw-bold">Creative Idea</h5>
+                <h5 class="fw-bold">Actionable Insights</h5>
               </a>
               <p class="text-muted">
-                Lorem ipsum dolor sit amet, adipiscing elit. Phasellus
-                hendrerit. Pellentesque aliquet nibh nec urna.
+                With advanced analytics and real-time processing, Crawlora
+                transforms raw data into actionable insights, helping you
+                identify trends, monitor competitors, and optimize your
+                marketing strategies effectively.
               </p>
             </div>
           </div>
@@ -287,11 +296,13 @@ import logoFooter from './images/logo-footer.png';
 
             <div class="service-content mt-4">
               <a href="#">
-                <h5 class="fw-bold">Design & Branding</h5>
+                <h5 class="fw-bold">User-Friendly Interface</h5>
               </a>
               <p class="text-muted">
-                Lorem ipsum dolor sit amet, adipiscing elit. Phasellus
-                hendrerit. Pellentesque aliquet nibh nec urna.
+                Designed with ease of use in mind, Crawlora offers an intuitive
+                interface that simplifies complex data analysis, enabling users
+                of all skill levels to harness the power of data without a steep
+                learning curve.
               </p>
             </div>
           </div>
@@ -309,11 +320,10 @@ import logoFooter from './images/logo-footer.png';
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <div class="title mb-5 text-center">
-            <h6 class="fw-bold text-primary mb-0">AppTech Features</h6>
+            <h6 class="fw-bold text-primary mb-0">Crawlora Features</h6>
             <h2 class="f-40">Features for our app</h2>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
-              inventore omnis aliquid rerum alias molestias.
+              Empower Your Data Journey: Explore Crawlora's Powerful Features!
             </p>
           </div>
         </div>
@@ -367,10 +377,10 @@ import logoFooter from './images/logo-footer.png';
                       <i class="mdi mdi-message-alert-outline f-24"></i>
                     </div>
                     <div class="content mt-3">
-                      <h5>Responsive Design</h5>
+                      <h5>Automated Data Crawling</h5>
                       <p>
-                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
-                        elementum.
+                        Effortlessly collect data from multiple online sources
+                        without manual intervention.
                       </p>
                     </div>
                   </div>
@@ -382,10 +392,10 @@ import logoFooter from './images/logo-footer.png';
                       <i class="mdi mdi-autorenew f-24"></i>
                     </div>
                     <div class="content mt-3">
-                      <h5>Cool Features</h5>
+                      <h5>Real-Time Analytics</h5>
                       <p>
-                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
-                        elementum.
+                        Gain instant insights with real-time data processing,
+                        allowing you to make informed decisions quickly.
                       </p>
                     </div>
                   </div>
@@ -397,10 +407,10 @@ import logoFooter from './images/logo-footer.png';
                       <i class="mdi mdi-eyedropper f-24"></i>
                     </div>
                     <div class="content mt-3">
-                      <h5>Lifetime Support</h5>
+                      <h5>User-Friendly Interface</h5>
                       <p>
-                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
-                        elementum.
+                        Navigate easily through an intuitive design that
+                        simplifies data aggregation and analysis.
                       </p>
                     </div>
                   </div>
@@ -418,10 +428,10 @@ import logoFooter from './images/logo-footer.png';
                       <i class="mdi mdi-lifebuoy f-24"></i>
                     </div>
                     <div class="content mt-3">
-                      <h5>Stunning Design</h5>
+                      <h5>Bulk Data Handling</h5>
                       <p>
-                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
-                        elementum.
+                        Efficiently manage and analyze large datasets to uncover
+                        patterns and trends.
                       </p>
                     </div>
                   </div>
@@ -431,10 +441,10 @@ import logoFooter from './images/logo-footer.png';
                       <i class="mdi mdi-dropbox f-24"></i>
                     </div>
                     <div class="content mt-3">
-                      <h5>Best PSD Pack</h5>
+                      <h5>Data Export and Integration</h5>
                       <p>
-                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
-                        elementum.
+                        Seamlessly export your data to various formats and
+                        integrate with major databases and reporting tools.
                       </p>
                     </div>
                   </div>
@@ -444,10 +454,10 @@ import logoFooter from './images/logo-footer.png';
                       <i class="mdi mdi-flask f-24"></i>
                     </div>
                     <div class="content mt-3">
-                      <h5>Creative Idea</h5>
+                      <h5>Cross-Platform Compatibility</h5>
                       <p>
-                        Vivamus ac nulla ultrices laoreet neque mollis mi morbi
-                        elementum.
+                        Access Crawlora on various operating systems for
+                        flexible use across different devices.
                       </p>
                     </div>
                   </div>
@@ -480,11 +490,10 @@ import logoFooter from './images/logo-footer.png';
                             <i class="mdi mdi-check-circle f-20 me-2"></i>
                           </div>
                           <div class="heading">
-                            <h6 class="mt-1">Fast Messaging</h6>
+                            <h6 class="mt-1">Customizable Search Filters</h6>
                             <p class="text-muted">
-                              Soluta velit sint, esse quis tempora impedit
-                              corrupti in recusandae tenetur dignissimos
-                              voluptates..
+                              Tailor your data searches with flexible filtering
+                              options to focus on the most relevant information.
                             </p>
                           </div>
                         </div>
@@ -495,10 +504,10 @@ import logoFooter from './images/logo-footer.png';
                             <i class="mdi mdi-check-circle f-20 me-2"></i>
                           </div>
                           <div class="heading">
-                            <h6 class="mt-1">User Friendly</h6>
+                            <h6 class="mt-1">Advanced Machine Learning</h6>
                             <p class="text-muted">
-                              Amet repudiandae illo quasi enim iusto corporis
-                              ratione? Laudantium reprehenderit sint provident.
+                              Leverage AI-driven insights to enhance data
+                              accuracy and prediction capabilities.
                             </p>
                           </div>
                         </div>
@@ -511,11 +520,10 @@ import logoFooter from './images/logo-footer.png';
                             <i class="mdi mdi-check-circle f-20 me-2"></i>
                           </div>
                           <div class="heading">
-                            <h6 class="mt-1">Minimal Interface</h6>
+                            <h6 class="mt-1">Comprehensive Reporting</h6>
                             <p class="text-muted">
-                              Repellat ad in autem, odio quos ex eum recusandae
-                              cupiditate assumenda nihil incidunt dolorem qui
-                              soluta.
+                              Generate detailed reports that visualize your data
+                              and highlight key performance indicators.
                             </p>
                           </div>
                         </div>
@@ -526,11 +534,10 @@ import logoFooter from './images/logo-footer.png';
                             <i class="mdi mdi-check-circle f-20 me-2"></i>
                           </div>
                           <div class="heading">
-                            <h6 class="mt-1">Notification</h6>
+                            <h6 class="mt-1">Secure Data Management</h6>
                             <p class="text-muted">
-                              Ipsam nisi quam velit maxime corrupti ut quos, ad
-                              eum laudantium voluptatibus, facilis numquam
-                              repellendus.
+                              Ensure compliance and data security with robust
+                              handling protocols and cloud infrastructure.
                             </p>
                           </div>
                         </div>
@@ -549,8 +556,7 @@ import logoFooter from './images/logo-footer.png';
   <!-- end features -->
 
   <!-- start testimonial -->
-  <section class="section bg-light testimonial" id="testimonial">
-    <!-- start container -->
+  <!-- <section class="section bg-light testimonial" id="testimonial">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-4">
@@ -631,7 +637,6 @@ import logoFooter from './images/logo-footer.png';
                 </div>
               </div>
             </div>
-            <!-- slider item -->
 
             <div class="item">
               <div class="testi-box position-relative overflow-hidden">
@@ -644,7 +649,7 @@ import logoFooter from './images/logo-footer.png';
                     />
                   </div>
                   <div class="col-md-7">
-                    <div class="p-4">
+                    <div class="user-select-none p-4">
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
                           <div class="avatar">
@@ -692,7 +697,6 @@ import logoFooter from './images/logo-footer.png';
               </div>
             </div>
 
-            <!-- slider item -->
             <div class="item">
               <div class="testi-box position-relative overflow-hidden">
                 <div class="row align-items-center">
@@ -704,7 +708,7 @@ import logoFooter from './images/logo-footer.png';
                     />
                   </div>
                   <div class="col-md-7">
-                    <div class="p-4">
+                    <div class="user-select-none p-4">
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
                           <div class="avatar">
@@ -754,7 +758,6 @@ import logoFooter from './images/logo-footer.png';
               </div>
             </div>
 
-            <!-- slider item -->
             <div class="item">
               <div class="testi-box position-relative overflow-hidden">
                 <div class="row align-items-center">
@@ -766,7 +769,7 @@ import logoFooter from './images/logo-footer.png';
                     />
                   </div>
                   <div class="col-md-7">
-                    <div class="p-4">
+                    <div class="user-select-none p-4">
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
                           <div class="avatar">
@@ -819,8 +822,7 @@ import logoFooter from './images/logo-footer.png';
         </div>
       </div>
     </div>
-    <!-- end container -->
-  </section>
+  </section> -->
   <!-- end testimonial -->
 
   <!-- pricing section -->
@@ -831,17 +833,13 @@ import logoFooter from './images/logo-footer.png';
           <div class="title mb-5 text-center">
             <h6 class="fw-bold text-primary mb-0">What's Your Price!</h6>
             <h2 class="f-40">Pricing plans!</h2>
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
-              inventore omnis aliquid rerum alias molestias.
-            </p>
           </div>
         </div>
       </div>
 
       <div class="row align-items-center">
         <div class="col-lg-4">
-          <div class="price-item overflow-hidden shadow-sm">
+          <!-- <div class="price-item overflow-hidden shadow-sm">
             <div class="price-up-box active p-4">
               <div class="badge bg-primary fw-normal f-14">Basic</div>
               <div class="price-tag mt-2">
@@ -858,7 +856,6 @@ import logoFooter from './images/logo-footer.png';
                 For most businesses that want to optimize web query.
               </p>
             </div>
-            <div class="border-3 border"></div>
 
             <div class="price-down-box p-4">
               <ul class="list-unstyled">
@@ -897,7 +894,7 @@ import logoFooter from './images/logo-footer.png';
                 ><i class="mdi mdi-check-all me-2"></i>your plane</a
               >
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="col-lg-4">
           <div class="price-item mt-lg-0 mt-4 overflow-hidden shadow-sm">
@@ -908,34 +905,33 @@ import logoFooter from './images/logo-footer.png';
               <div class="badge bg-primary fw-normal f-14">Startup</div>
               <div class="price-tag mt-2">
                 <h2 class="text-dark f-40 mb-0">
-                  <sup class="f-22 fw-normal">$</sup>19
+                  <sup class="f-22 fw-normal">$</sup>0
                   <sup class="f-16 fw-normal"> /month</sup>
                 </h2>
               </div>
-              <p class="text-muted mb-1">20 to 40 user</p>
+              <p class="text-muted mb-1">Unlimited users</p>
               <p class="text-muted mb-0">
                 For most businesses that want to optimize web query.
               </p>
             </div>
-            <div class="border-3 border"></div>
 
             <div class="price-down-box p-4">
               <ul class="list-unstyled">
                 <li>
                   <i
                     class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
-                  ></i>15 App and project
+                  ></i>Unlimited Apps
                 </li>
                 <li class="mt-2">
                   <i
                     class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
-                  ></i>800 Gb/s storange
+                  ></i>Unlimited storange
                 </li>
-                <li class="mt-2">
+                <!-- <li class="mt-2">
                   <i
                     class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
                   ></i>Free coustom domain
-                </li>
+                </li> -->
                 <li class="mt-2">
                   <i
                     class="mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle"
@@ -943,23 +939,23 @@ import logoFooter from './images/logo-footer.png';
                 </li>
                 <li class="mt-2">
                   <i
-                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                    class="mdi mdi-check-circle-outline f-20 text-danger me-2 align-middle"
                   ></i>No transaction fees
                 </li>
                 <li class="mt-2">
                   <i
-                    class="mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle"
+                    class="mdi mdi-check-circle-outline f-20 text-danger me-2 align-middle"
                   ></i>Unlimited Storage
                 </li>
               </ul>
               <a href="#" class="btn btn-sm btn-primary mt-3"
-                ><i class="mdi mdi-check-all me-2"></i>Buy Now</a
+                ><i class="mdi mdi-check-all me-2"></i>Download Now</a
               >
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="price-item mt-lg-0 mt-4 overflow-hidden shadow-sm">
+          <!-- <div class="price-item mt-lg-0 mt-4 overflow-hidden shadow-sm">
             <div class="price-up-box p-4">
               <div class="badge bg-primary fw-normal f-14">Enterprise</div>
               <div class="price-tag mt-2">
@@ -976,7 +972,6 @@ import logoFooter from './images/logo-footer.png';
                 For most businesses that want to optimize web query.
               </p>
             </div>
-            <div class="border-3 border"></div>
 
             <div class="price-down-box p-4">
               <ul class="list-unstyled">
@@ -1015,7 +1010,7 @@ import logoFooter from './images/logo-footer.png';
                 ><i class="mdi mdi-check-all me-2"></i>Buy Now</a
               >
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -1030,11 +1025,9 @@ import logoFooter from './images/logo-footer.png';
         <div class="col-lg-8">
           <div class="title mb-5 text-center">
             <h6 class="fw-bold text-primary mb-0">App Screen!</h6>
-            <h2 class="f-40">Show our App Screenshots!</h2>
+            <h2 class="f-40">See our App Screenshots!</h2>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos <br
-              />
-              inventore omnis aliquid rerum alias molestias.
+              Explore Our Screenshots: A Glimpse into Crawlora in Action!
             </p>
           </div>
         </div>
@@ -1073,7 +1066,7 @@ import logoFooter from './images/logo-footer.png';
                   class="img-fluid"
                 />
               </div>
-              <div class="swiper-slide border-radius">
+              <!-- <div class="swiper-slide border-radius">
                 <img
                   src={screenshot4.src}
                   alt="Screenshot 4"
@@ -1093,7 +1086,7 @@ import logoFooter from './images/logo-footer.png';
                   alt="Screenshot 6"
                   class="img-fluid"
                 />
-              </div>
+              </div> -->
             </div>
 
             <!-- navigation buttons -->
@@ -1116,9 +1109,7 @@ import logoFooter from './images/logo-footer.png';
             <h6 class="fw-bold text-primary mb-0">Our Team!</h6>
             <h2 class="f-40">We are a team!</h2>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos <br
-              />
-              inventore omnis aliquid rerum alias molestias.
+              Meet Our Team: The Minds Behind Crawlora's Innovation!
             </p>
           </div>
         </div>
@@ -1271,9 +1262,9 @@ import logoFooter from './images/logo-footer.png';
   <!-- end section -->
 
   <!-- cta section -->
-  <section class="section cta">
+  <!-- <section class="section cta">
     <div class="bg-overlay-gradiant"></div>
-    <!-- start container -->
+
     <div class="position-relative container">
       <div class="row">
         <div class="col-lg-6">
@@ -1315,8 +1306,7 @@ import logoFooter from './images/logo-footer.png';
         </div>
       </div>
     </div>
-    <!-- end container -->
-  </section>
+  </section> -->
   <!-- end section -->
 
   <!-- contact section -->
@@ -1329,9 +1319,7 @@ import logoFooter from './images/logo-footer.png';
             <h6 class="fw-bold text-primary mb-0">Contact Us</h6>
             <h2 class="f-40">Get In Touch!</h2>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos <br
-              />
-              inventore omnis aliquid rerum alias molestias.
+              Get in Touch: We're Here to Help You Transform Your Data Journey!
             </p>
           </div>
         </div>
@@ -1447,7 +1435,10 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="flex-grow-1 ms-3">
               <h5 class="mb-1">Location</h5>
-              <p class="f-14 text-muted mb-0">2276 Lynn Ogden Lane Beaumont</p>
+              <p class="f-14 text-muted mb-0">
+                A-402, Shapath Hexa Near Sola Bridge, Sarkhej - Gandhinagar Hwy,
+                Sola, Ahmedabad, Gujarat 380060
+              </p>
             </div>
           </div>
         </div>
@@ -1458,7 +1449,7 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="flex-grow-1 ms-3">
               <h5 class="mb-1">Email</h5>
-              <p class="f-14 text-muted mb-0">Email: FredVWeaver@rhyta.com</p>
+              <p class="f-14 text-muted mb-0">Email: support@crawlora.com</p>
             </div>
           </div>
         </div>
@@ -1469,7 +1460,7 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="flex-grow-1 ms-3">
               <h5 class="mb-1">Phone</h5>
-              <p class="f-14 text-muted mb-0">2276 Lynn Ogden Lane Beaumont</p>
+              <p class="f-14 text-muted mb-0">+917597365803</p>
             </div>
           </div>
         </div>
@@ -1487,17 +1478,17 @@ import logoFooter from './images/logo-footer.png';
       <div class="row">
         <div class="col-lg-4">
           <a class="navbar-brand logo text-uppercase" href="index-1.html">
-            <Image
+            <!-- <Image
               src={logoFooter}
               class="logo-light"
               alt="Logo Light"
               height={30}
-            />
+            /> -->
+            <BrandLogo class="h-auto w-44" />
           </a>
           <p class="text-white-50 mb-0 mt-2">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae,
-            deserunt expedita! Id sit dicta quidem aperiam aut ad debitis
-            numquam .
+            Transform Your Data Strategy with Crawlora: Automate, Analyze, and
+            Act with Confidence.
           </p>
 
           <div class="footer-icon mt-4">
@@ -1509,7 +1500,7 @@ import logoFooter from './images/logo-footer.png';
                 data-bs-placement="top"
                 data-bs-title="Facebook"
               >
-                <i class="mdi mdi-facebook f-24 text-primary align-middle"></i>
+                <i class="mdi mdi-slack f-24 text-primary align-middle"></i>
               </a>
               <a
                 href="#"
@@ -1520,7 +1511,7 @@ import logoFooter from './images/logo-footer.png';
               >
                 <i class="mdi mdi-twitter f-24 text-primary align-middle"></i>
               </a>
-              <a
+              <!-- <a
                 href="#"
                 class="avatar-sm mx-2 text-center"
                 data-bs-toggle="tooltip"
@@ -1529,7 +1520,7 @@ import logoFooter from './images/logo-footer.png';
               >
                 <i class="mdi mdi-google-play f-24 text-primary align-middle"
                 ></i>
-              </a>
+              </a> -->
               <a
                 href="#"
                 class="avatar-sm mx-2 text-center"
@@ -1588,31 +1579,14 @@ import logoFooter from './images/logo-footer.png';
             start.
           </p>
         </div>
+        <p class="text-white-50 mt-10">
+          © <span id="current-year">2024</span> Crawlora: Find data at scale.
+        </p>
       </div>
     </div>
     <!-- end container -->
   </section>
 
-  <section class="bottom-footer py-4">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <p class="text-muted mb-0 text-center">
-            ©
-            <script>
-              document.write(String(new Date().getFullYear()));
-            </script> Styza. Design with <i class="mdi mdi-heart text-danger"
-            ></i>
-            by <a
-              href="https://store.themesdesign.in/"
-              target="_blank"
-              class="text-muted">Themesdesign.</a
-            >
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- end footer -->
 
   <!-- Style switcher -->
@@ -1776,37 +1750,6 @@ import logoFooter from './images/logo-footer.png';
 
   // ********* swiper slider ** app Slider **
 
-  import Swiper from 'swiper';
-
-  new Swiper('.swiper-container', {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    centeredSlides: true,
-    speed: 5000,
-    autoplay: {
-      delay: 5000,
-    },
-    breakpoints: {
-      1920: {
-        slidesPerView: 5,
-        spaceBetween: 50,
-      },
-      992: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-      768: {
-        slidesPerView: 1,
-        spaceBetween: 30,
-      },
-    },
-  });
-
   // Contact Form
   // function validateForm(): boolean {
   //   const name = (document.forms['myForm']['name'] as HTMLInputElement).value;
@@ -1893,8 +1836,8 @@ import logoFooter from './images/logo-footer.png';
   document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.swiper-container', {
       loop: true,
-      slidesPerView: 1,
-      spaceBetween: 20,
+      slidesPerView: 5,
+      spaceBetween: 30,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -1906,7 +1849,7 @@ import logoFooter from './images/logo-footer.png';
       },
       breakpoints: {
         1920: {
-          slidesPerView: 5,
+          slidesPerView: 3,
           spaceBetween: 50,
         },
         992: {
