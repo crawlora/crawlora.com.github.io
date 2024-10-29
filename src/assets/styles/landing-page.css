@@ -359,6 +359,71 @@ body[data-bs-theme='dark'] .navbar-brand .logo-light {
     padding: 10px 30px;
   }
 }
+.theme-button {
+  background-color: #fa5a15;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.theme-button:hover {
+  background-color: #e04e0e;
+}
+
+.popover {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  z-index: 1000;
+  border-top: 4px solid #fa5a15; /* Accent color */
+}
+
+/* Popover open animation */
+.popover.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(10%) translateY(-27px);
+}
+
+.close-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #fa5a15;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background-color: #e04e0e;
+}
+
+.popover iframe {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: none;
+}
 .text-primary {
   color: #fa5a15 !important;
 }
@@ -2124,7 +2189,7 @@ body[data-bs-theme='dark'] .features-box h6 {
   cursor: alias;
 }
 .app-slider .swiper-container {
-  padding: 18px 0 50px 0;
+  padding: 18px 0 137px 0;
   width: 100%;
 }
 
@@ -2143,15 +2208,15 @@ body[data-bs-theme='dark'] .features-box h6 {
   transform: translate(-50%, -52%);
   top: 50%;
   height: auto;
-  width: 550px;
+  width: 466px;
 }
 /* .app-slider .swiper-container .swiper-wrapper
 {
   height: 350px;
 } */
-.app-slider .swiper-container .swiper-wrapper img {
+/* .app-slider .swiper-container .swiper-wrapper img {
   border-radius: 20px;
-}
+} */
 .app-slider .swiper-container .swiper-pagination-bullet-active {
   opacity: 1;
   background: #fa5a15;

@@ -56,6 +56,8 @@ import ctaBgImage from './images/cta-bg.webp';
 
 //footer
 import logoFooter from './images/logo-footer.png';
+import ContactSection from '@/components/sections/misc/ContactSection.astro';
+import AuthBtn from '@/components/ui/buttons/AuthBtn.astro';
 ---
 
 <LandingPageLayout>
@@ -70,7 +72,7 @@ import logoFooter from './images/logo-footer.png';
   >
     <div class="container-fluid">
       <!-- LOGO -->
-      <a class="navbar-brand logo text-uppercase" href="index-1.html">
+      <a class="navbar-brand logo text-uppercase" href="/">
         <!-- <Image
           src={logoLight}
           class="logo-light"
@@ -96,25 +98,28 @@ import logoFooter from './images/logo-footer.png';
       <div class="navbar-collapse collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto" id="navbar-navlist">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#service">Services</a>
+            <a class="nav-link" href="/apps">Apps</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#features">Features</a>
+            <a class="nav-link" href="/service">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#pricing">Pricing</a>
+            <a class="nav-link" href="/pricing">Pricing</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/blog">Blogs</a>
+          </li>
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#app">Application</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#team">Team</a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="/contact">Contact</a>
           </li>
         </ul>
         <div class="ms-auto">
@@ -172,6 +177,17 @@ import logoFooter from './images/logo-footer.png';
               </div>
             </div>
           </form> -->
+          <div class="col-4 popover-button mt-5 p-0">
+            <button class="btn btn-big btn-primary">Subscribe</button>
+          </div>
+          <div class="popover" id="tally-popover">
+            <iframe
+              src="https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              width="100%"
+              height="300"
+              style="border: none;"></iframe>
+            <button id="close-popover" class="close-btn">Close</button>
+          </div>
 
           <div class="d-flex align-items-center mt-5">
             <div class="flex-shrink-0">
@@ -210,7 +226,6 @@ import logoFooter from './images/logo-footer.png';
             </div>
           </div>
         </div>
-
         <div class="col-lg-6">
           <img src={homeImage.src} alt="Home Image" class="img-fluid" />
         </div>
@@ -241,10 +256,7 @@ import logoFooter from './images/logo-footer.png';
       <div class="row justify-content-between">
         <div class="col-lg-4">
           <div class="service-box text-center">
-            <div
-              class="service-icon p-4"
-              style={`background-image: url(${bombImage.src}); background-repeat: no-repeat; background-position: center;`}
-            >
+            <div class="service-icon p-4">
               <i class="mdi mdi-security text-gradiant f-30"></i>
             </div>
 
@@ -264,10 +276,7 @@ import logoFooter from './images/logo-footer.png';
 
         <div class="col-lg-4 pt-lg-0 pt-4">
           <div class="service-box text-center shadow">
-            <div
-              class="service-icon p-4"
-              style={`background-image: url(${bombImage.src}); background-repeat: no-repeat; background-position: center;`}
-            >
+            <div class="service-icon p-4">
               <i class="mdi mdi-lightbulb-on text-gradiant f-30"></i>
             </div>
 
@@ -287,10 +296,7 @@ import logoFooter from './images/logo-footer.png';
 
         <div class="col-lg-4 pt-lg-0 pt-4">
           <div class="service-box text-center">
-            <div
-              class="service-icon p-4"
-              style={`background-image: url(${bombImage.src}); background-repeat: no-repeat; background-position: center;`}
-            >
+            <div class="service-icon p-4">
               <i class="mdi mdi-google-nearby text-gradiant f-30"></i>
             </div>
 
@@ -1066,14 +1072,14 @@ import logoFooter from './images/logo-footer.png';
                   class="img-fluid"
                 />
               </div>
-              <!-- <div class="swiper-slide border-radius">
+              <div class="swiper-slide border-radius">
                 <img
                   src={screenshot4.src}
                   alt="Screenshot 4"
                   class="img-fluid"
                 />
               </div>
-              <div class="swiper-slide border-radius">
+              <!--<div class="swiper-slide border-radius">
                 <img
                   src={screenshot5.src}
                   alt="Screenshot 5"
@@ -1143,7 +1149,7 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="team-info position-absolute">
               <h6>
-                Cody Fisher <span class="f-14 text-muted fw-normal">
+                Dharmendra <span class="f-14 text-muted fw-normal">
                   / Owner</span
                 >
               </h6>
@@ -1178,8 +1184,8 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="team-info position-absolute">
               <h6>
-                Emily Coper <span class="f-14 text-muted fw-normal">
-                  / Designer</span
+                Nishal <span class="f-14 text-muted fw-normal">
+                  / Devloper</span
                 >
               </h6>
             </div>
@@ -1213,7 +1219,7 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="team-info position-absolute">
               <h6>
-                Nick Obron <span class="f-14 text-muted fw-normal">
+                Niraj <span class="f-14 text-muted fw-normal">
                   / Developer</span
                 >
               </h6>
@@ -1248,9 +1254,7 @@ import logoFooter from './images/logo-footer.png';
             </div>
             <div class="team-info position-absolute">
               <h6>
-                Simmy Roy <span class="f-14 text-muted fw-normal">
-                  / Manager</span
-                >
+                Yash <span class="f-14 text-muted fw-normal"> / Designer</span>
               </h6>
             </div>
           </div>
@@ -1336,13 +1340,13 @@ import logoFooter from './images/logo-footer.png';
             </div>
 
             <div class="custom-form mt-4">
-              <form
+              <!-- <form
                 method="post"
                 name="myForm"
                 onsubmit="return validateForm()"
               >
                 <p id="error-msg" style="opacity: 1;">
-                  <!-- <div class="alert alert-warning">*Please enter a Name*</div> -->
+                
                 </p>
 
                 <div id="simple-msg"></div>
@@ -1405,62 +1409,56 @@ import logoFooter from './images/logo-footer.png';
                     />
                   </div>
                 </div>
-              </form>
+              </form> -->
+              <a
+                href="https://form.jotform.com/241921518978468?cta=main_footer"
+              >
+                <div class="mt-4 grid">
+                  <AuthBtn title="Send Message" />
+                </div></a
+              >
             </div>
           </div>
         </div>
         <div class="col-lg-7">
           <div class="m-5">
-            <div class="position-relative">
-              <div class="contact-map">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29754.94142818836!2d72.88699279999999!3d21.217263799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1641286801478!5m2!1sen!2sin"
-                  width="550"
-                  height="450"
-                  style="border:0;"
-                  allowfullscreen=""
-                  loading="lazy"></iframe>
+            <div class="col-md-12 mt-5">
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <i class="mdi mdi-google-maps f-50 text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-1">Location</h5>
+                  <p class="f-14 text-muted mb-0">
+                    A-402, Shapath Hexa Near Sola Bridge, Sarkhej - Gandhinagar
+                    Hwy, Sola, Ahmedabad, Gujarat 380060
+                  </p>
+                </div>
               </div>
-              <div class="map-shape"></div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <div class="d-flex align-items-center">
-            <div class="flex-shrink-0">
-              <i class="mdi mdi-google-maps f-50 text-primary"></i>
+            <div class="col-md-12 mt-5">
+              <div class="d-flex align-items-center mt-lg-0 mt-4">
+                <div class="flex-shrink-0">
+                  <i class="mdi mdi-email f-50 text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-1">Email</h5>
+                  <p class="f-14 text-muted mb-0">
+                    Email: support@crawlora.com
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="flex-grow-1 ms-3">
-              <h5 class="mb-1">Location</h5>
-              <p class="f-14 text-muted mb-0">
-                A-402, Shapath Hexa Near Sola Bridge, Sarkhej - Gandhinagar Hwy,
-                Sola, Ahmedabad, Gujarat 380060
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="d-flex align-items-center mt-lg-0 mt-4">
-            <div class="flex-shrink-0">
-              <i class="mdi mdi-email f-50 text-primary"></i>
-            </div>
-            <div class="flex-grow-1 ms-3">
-              <h5 class="mb-1">Email</h5>
-              <p class="f-14 text-muted mb-0">Email: support@crawlora.com</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="d-flex align-items-center mt-lg-0 mt-4">
-            <div class="flex-shrink-0">
-              <i class="mdi mdi-phone f-50 text-primary"></i>
-            </div>
-            <div class="flex-grow-1 ms-3">
-              <h5 class="mb-1">Phone</h5>
-              <p class="f-14 text-muted mb-0">+917597365803</p>
+            <div class="col-md-12 mt-5">
+              <div class="d-flex align-items-center mt-lg-0 mt-4">
+                <div class="flex-shrink-0">
+                  <i class="mdi mdi-phone f-50 text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mb-1">Phone</h5>
+                  <p class="f-14 text-muted mb-0">+917597365803</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1494,16 +1492,16 @@ import logoFooter from './images/logo-footer.png';
           <div class="footer-icon mt-4">
             <div class="d-flex align-items-center">
               <a
-                href="#"
+                href="https://join.slack.com/t/dataminer-site/shared_invite/zt-2lvmboppf-FPPVWGwXDz6YAaLC5aYGTg"
                 class="avatar-sm me-2 text-center"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
-                data-bs-title="Facebook"
+                data-bs-title="Slack"
               >
                 <i class="mdi mdi-slack f-24 text-primary align-middle"></i>
               </a>
               <a
-                href="#"
+                href="https://x.com/crawlora"
                 class="avatar-sm mx-2 text-center"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
@@ -1522,13 +1520,13 @@ import logoFooter from './images/logo-footer.png';
                 ></i>
               </a> -->
               <a
-                href="#"
+                href="https://github.com/crawlora-com"
                 class="avatar-sm mx-2 text-center"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 data-bs-title="Linkedin"
               >
-                <i class="mdi mdi-linkedin f-24 text-primary align-middle"></i>
+                <i class="mdi mdi-github f-24 text-primary align-middle"></i>
               </a>
             </div>
           </div>
@@ -1536,29 +1534,31 @@ import logoFooter from './images/logo-footer.png';
 
         <div class="col-lg-2">
           <div class="mt-lg-0 mt-4 text-start">
-            <h5 class="fw-bold text-white">Product</h5>
+            <h5 class="fw-bold text-white">Ecosystem</h5>
             <ul class="footer-item list-unstyled footer-link mt-3">
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Get App</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="/welcome-to-docs/">Documentation</a></li>
+              <li><a href="/apps">Apps</a></li>
+              <li>
+                <a href="https://apidoc.crawlora.com/?cta=homepage-footer"
+                  >Api Doc</a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div class="col-lg-2">
           <div class="text-start">
-            <h5 class="fw-bold text-white">Policies</h5>
+            <h5 class="fw-bold text-white">Info</h5>
             <ul class="footer-item list-unstyled footer-link mt-3">
-              <li><a href="#">Security & Provciy</a></li>
-              <li><a href="#">Marketplace</a></li>
-              <li><a href="#">Term & Condition</a></li>
-              <li><a href="#">Collection</a></li>
+              <li><a href="#"> Use Cases </a></li>
+              <li><a href="/blog"> Blog </a></li>
+              <li><a href="/faq"> FAQs </a></li>
+              <li><a href="#"> Customers </a></li>
             </ul>
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <!-- <div class="col-lg-4">
           <h5 class="text-white">Subscribe</h5>
           <div class="input-group my-4">
             <input
@@ -1574,11 +1574,13 @@ import logoFooter from './images/logo-footer.png';
               id="basic-addon2">Go</a
             >
           </div>
+
           <p class="text-white-50 mb-0">
             publishes will show up in your Subscriptions feed. You may also
             start.
           </p>
-        </div>
+        </div> -->
+
         <p class="text-white-50 mt-10">
           © <span id="current-year">2024</span> Crawlora: Find data at scale.
         </p>
@@ -1849,7 +1851,7 @@ import logoFooter from './images/logo-footer.png';
       },
       breakpoints: {
         1920: {
-          slidesPerView: 3,
+          slidesPerView: 5,
           spaceBetween: 50,
         },
         992: {
@@ -1862,6 +1864,19 @@ import logoFooter from './images/logo-footer.png';
         },
       },
     });
+  });
+</script>
+<script is:inline>
+  const button = document.querySelector('.popover-button button');
+  const popover = document.getElementById('tally-popover');
+  const closePopoverButton = document.getElementById('close-popover');
+
+  button.addEventListener('click', () => {
+    popover.classList.add('show');
+  });
+
+  closePopoverButton.addEventListener('click', () => {
+    popover.classList.remove('show');
   });
 </script>
 <script is:inline>
