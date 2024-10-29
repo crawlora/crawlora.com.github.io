@@ -1904,7 +1904,7 @@ body[data-bs-theme='dark'] .title h6 {
   opacity: 0.8;
 }
 .home-5 {
-  min-height: calc(100vh - 200px);
+  min-height: 100dvh;
   align-items: center;
   display: flex;
   background-repeat: no-repeat;
