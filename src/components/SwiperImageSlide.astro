@@ -1,0 +1,42 @@
+---
+import slide1 from "../pages/images/testi/ss/s-1.png";
+import slide2 from "../pages/images/testi/ss/s-2.png";
+import slide3 from "../pages/images/testi/ss/s-3.png";
+---
+
+<section class='section app-slider bg-light w-80 overflow-hidden' id='app'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-12'>
+        <div class='swiper-container'>
+          <div class='swiper-wrapper'>
+            <div class='swiper-slide border-radius'>
+              <img src={slide1.src} alt='Screenshot 1' class='img-fluid' />
+            </div>
+            <div class='swiper-slide border-radius'>
+              <img src={slide2.src} alt='Screenshot 2' class='img-fluid' />
+            </div>
+            <div class='swiper-slide border-radius'>
+              <img src={slide3.src} alt='Screenshot 3' class='img-fluid' />
+            </div>
+          </div>
+          <div class='swiper-pagination'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".swiper-container", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      centeredSlides: true,
+    });
+  });
+</script>
