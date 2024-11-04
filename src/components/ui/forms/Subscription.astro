@@ -1,0 +1,97 @@
+---
+const { themeColor = '#fa5a15' } = Astro.props; // Use themeColor as a prop
+---
+
+<div class="popover" id="tally-popover">
+  <iframe
+    src="https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    width="100%"
+    height="300"
+    style="border: none;"></iframe>
+  <button id="close-popover" class="close-btn theme-button">Close</button>
+</div>
+
+<style>
+  .theme-button {
+    background-color: var(--theme-color);
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .theme-button:hover {
+    background-color: #e04e0e;
+  }
+
+  .popover {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+    border-top: 4px solid var(--theme-color);
+  }
+
+  .popover.show {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+  }
+
+  .close-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--theme-color);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+  }
+
+  .close-btn:hover {
+    background-color: #e04e0e;
+  }
+</style>
+
+<script is:inline>
+  const popover = document.getElementById('tally-popover');
+  const closePopoverButton = document.getElementById('close-popover');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          popover.classList.add('show');
+        }
+      });
+    });
+
+    const footer = document.querySelector('footer');
+    observer.observe(footer);
+
+    closePopoverButton.addEventListener('click', () => {
+      popover.classList.remove('show');
+      observer.unobserve(footer);
+    });
+  });
+</script>
