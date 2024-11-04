@@ -1,0 +1,30 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import DownloadPage from "@components/sections/download/DownloadPage.astro";
+const pageTitle: string = `Download`;
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://crawlora.com/contact",
+    "url": "https://crawlora.com/contact",
+    "name": "Contact Us | Crawlora",
+    "description":
+      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://crawlora.com",
+      "name": "Crawlora",
+      "description":
+        "Crawlora is a web crawling platform that automates data extraction, empowering businesses to gather valuable insights efficiently and at scale.",
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <DownloadPage />
+</MainLayout>

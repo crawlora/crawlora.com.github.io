@@ -6,6 +6,7 @@ const navBarLinks = [
   { name: "Pricing", url: "/pricing" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
+  { name: "Download", url: "/download" },
   {
     name: "Login",
     url: "https://app.crawlora.com?cta=homepage-header-login-btn",
