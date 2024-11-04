@@ -1,0 +1,14 @@
+---
+// Props received from Footer.astro
+const { href, title, iconClass } = Astro.props;
+---
+
+<a
+  href={href}
+  class="avatar-sm mx-2 text-center"
+  data-bs-toggle="tooltip"
+  data-bs-placement="top"
+  data-bs-title={title}
+>
+  <i class={`${iconClass} f-24 text-primary align-middle`}></i>
+</a>

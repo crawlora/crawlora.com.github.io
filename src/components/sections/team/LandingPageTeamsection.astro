@@ -1,0 +1,51 @@
+---
+import TeamMember from './TeamMember.astro';
+
+import Teamimg1 from '../../../pages/images/team/img1.png';
+import Teamimg2 from '../../../pages/images/team/img2.png';
+import Teamimg3 from '../../../pages/images/team/img3.png';
+import Teamimg4 from '../../../pages/images/team/img4.png';
+---
+
+<section class="section team" id="team">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title mb-5 text-center">
+          <h6 class="fw-bold text-primary mb-0">Our Team!</h6>
+          <h2 class="f-40">We are a team!</h2>
+          <p class="text-muted">
+            Meet Our Team: The Minds Behind Crawlora's Innovation!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <TeamMember
+        name="Dharmendra"
+        role="Owner"
+        imgSrc={Teamimg1.src}
+        altText="Dharmendra"
+      />
+      <TeamMember
+        name="Nishal"
+        role="Developer"
+        imgSrc={Teamimg4.src}
+        altText="Nishal"
+      />
+      <TeamMember
+        name="Niraj"
+        role="Developer"
+        imgSrc={Teamimg3.src}
+        altText="Niraj"
+      />
+      <TeamMember
+        name="Yash"
+        role="Designer"
+        imgSrc={Teamimg2.src}
+        altText="Yash"
+      />
+    </div>
+  </div>
+</section>

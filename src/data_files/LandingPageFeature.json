@@ -1,0 +1,66 @@
+{
+  "title": "Crawlora Features",
+  "description": "Empower Your Data Journey: Explore Crawlora's Powerful Features!",
+  "tabs": [
+    {
+      "label": "Top Features",
+      "features": [
+        {
+          "icon": "mdi-message-alert-outline",
+          "title": "Automated Data Crawling",
+          "description": "Effortlessly collect data from multiple online sources without manual intervention."
+        },
+        {
+          "icon": "mdi-autorenew",
+          "title": "Real-Time Analytics",
+          "description": "Gain instant insights with real-time data processing, allowing you to make informed decisions quickly."
+        },
+        {
+          "icon": "mdi-eyedropper",
+          "title": "User-Friendly Interface",
+          "description": "Navigate easily through an intuitive design that simplifies data aggregation and analysis."
+        },
+        {
+          "icon": "mdi-lifebuoy",
+          "title": "Bulk Data Handling",
+          "description": "Efficiently manage and analyze large datasets to uncover patterns and trends."
+        },
+        {
+          "icon": "mdi-dropbox",
+          "title": "Data Export and Integration",
+          "description": "Seamlessly export your data to various formats and integrate with major databases and reporting tools."
+        },
+        {
+          "icon": "mdi-flask",
+          "title": "Cross-Platform Compatibility",
+          "description": "Access Crawlora on various operating systems for flexible use across different devices."
+        }
+      ]
+    },
+    {
+      "label": "Smart Features",
+      "features": [
+        {
+          "icon": "mdi-check-circle",
+          "title": "Customizable Search Filters",
+          "description": "Tailor your data searches with flexible filtering options to focus on the most relevant information."
+        },
+        {
+          "icon": "mdi-check-circle",
+          "title": "Advanced Machine Learning",
+          "description": "Leverage AI-driven insights to enhance data accuracy and prediction capabilities."
+        },
+        {
+          "icon": "mdi-check-circle",
+          "title": "Comprehensive Reporting",
+          "description": "Generate detailed reports that visualize your data and highlight key performance indicators."
+        },
+        {
+          "icon": "mdi-check-circle",
+          "title": "Secure Data Management",
+          "description": "Ensure compliance and data security with robust handling protocols and cloud infrastructure."
+        }
+      ]
+    }
+  ]
+}

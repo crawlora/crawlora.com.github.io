@@ -1,0 +1,17 @@
+---
+// Props received from Footer.astro
+const { title, links } = Astro.props;
+---
+
+<div class="mt-lg-0 mt-4 text-start">
+  <h5 class="fw-bold text-white">{title}</h5>
+  <ul class="footer-item list-unstyled footer-link mt-3">
+    {
+      links.map((link: any) => (
+        <li>
+          <a href={link.href}>{link.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
