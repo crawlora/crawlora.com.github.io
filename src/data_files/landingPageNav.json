@@ -13,7 +13,7 @@
   ],
   "button": {
     "label": "Download",
-    "href": "#",
+    "href": "/download",
     "class": "btn bg-gradiant"
   }
 }
