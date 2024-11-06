@@ -2105,9 +2105,19 @@ body[data-bs-theme='dark']
   color: #183b56;
   transition: all 0.3s;
 }
+.service .service-box .service-circle{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: rgba(0, 118, 163, 0.1);
+  border-radius: 50%;
+}
 .service .service-box .service-icon i {
   position: relative;
-  top: 10px;
+  top: 2px;
 }
 .service .service-box:hover {
   box-shadow: 0 5px 13px rgba(60, 72, 88, 0.2);
@@ -2420,6 +2430,7 @@ body[data-bs-theme='dark'] .contact-form {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 .footer .footer-icon a {
   border: 1px dashed rgba(131, 132, 133, 0.5);

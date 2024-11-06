@@ -1,28 +1,60 @@
 ---
-import SwiperImageSlide from "@/components/SwiperImageSlide.astro";
+import SwiperImageSlide from '@/components/SwiperImageSlide.astro';
+import Modal from '@/components/ui/Modal.astro';
+
+// State to track modal open/close
+let isModalOpen = false;
+
+// Function to open the modal
+function openModal() {
+  isModalOpen = true;
+}
+
+// Function to close the modal
+function closeModal() {
+  isModalOpen = false;
+}
 ---
 
-<div class='m-10 rounded-lg bg-white p-10 shadow-lg'>
-  <div class='mb-10'>
-    <SwiperImageSlide />
-  </div>
-  <div>
-    <h2 class='text-2xl font-semibold text-orange-500'>Crawlora App</h2>
-    <p class='mt-2 text-gray-600'>
+<div
+  class="m-10 flex flex-col items-center justify-center rounded-lg bg-white p-6 shadow-lg md:flex-row md:p-10"
+>
+  <SwiperImageSlide />
+  <div class="md:px-10">
+    <h2 class="text-2xl font-semibold text-orange-500">Crawlora App</h2>
+    <p class="mt-2 text-[14px] text-gray-600">
       Crawlora is a data aggregation tool for marketers, automating data
       crawling and real-time analysis from platforms like Amazon and Google. It
       delivers actionable insights with secure, scalable data handling for
       businesses of all sizes.
     </p>
-    <div class='mt-4'>
+    <div class="mt-4">
       <button
-        class='rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600'
+        data-open-modal
+        class="text-rounded bg-orange-500 px-4 py-2 text-[14px] text-white hover:bg-orange-600"
       >
         Download Desktop app
       </button>
-      <span class='mt-1 block text-sm text-gray-500'
+      <span class="mt-1 block text-[12px] text-sm text-gray-500"
         >Windows · MacOS (Apple Silicon) · Linux</span
       >
     </div>
   </div>
 </div>
+<Modal isOpen={isModalOpen} />
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openButton = document.querySelector('[data-open-modal]');
+    const closeButton = document.querySelector('[data-close-modal]');
+    const modalContainer = document.querySelector('div[role="dialog"]');
+
+    openButton.addEventListener('click', () => {
+      modalContainer.style.display = 'flex';
+    });
+
+    closeButton.addEventListener('click', () => {
+      modalContainer.style.display = 'none';
+    });
+  });
+</script>
