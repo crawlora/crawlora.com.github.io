@@ -11,9 +11,11 @@ import downloadLinks from '@data/DownloadLink.json';
   style={`display: ${isOpen ? 'flex' : 'none'}`}
 >
   <div
-    class="w-80 scale-95 transform rounded-lg bg-[#e5e7eb] p-6 shadow-2xl transition-all duration-300 ease-in-out"
+    class="w-80 scale-95 transform rounded-lg bg-neutral-100 p-6 shadow-2xl transition-all duration-300 ease-in-out dark:bg-[#171717]"
   >
-    <h3 class="mb-2 text-2xl font-bold text-gray-800">Select Version</h3>
+    <h3 class="mb-2 text-2xl font-bold text-gray-800 dark:text-white">
+      Select Version
+    </h3>
     <p class="mb-6 text-gray-600">Choose your platform to download:</p>
 
     <div class="flex w-full flex-col space-y-3">
@@ -33,7 +35,7 @@ import downloadLinks from '@data/DownloadLink.json';
 
     <button
       data-close-modal
-      class="mt-6 w-full rounded-lg bg-gray-300 px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-400"
+      class="mt-6 w-full rounded-lg bg-gray-300 px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-400 dark:bg-white"
     >
       Close
     </button>

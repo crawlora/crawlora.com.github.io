@@ -1,0 +1,53 @@
+/* colors.css */
+:root {
+    /* Primary Colors */
+    --primary-color: #fa5a15;
+    --primary-color-light: rgba(0, 118, 163, 0.2);
+    --primary-color-dark: #00678f;
+  
+    /* Secondary Colors */
+    --secondary-color: #979795;
+    --secondary-color-light: rgba(151, 151, 149, 0.2);
+    --secondary-color-dark: #8d8d8b;
+  
+    /* Success Colors */
+    --success-color: #1d9b7b;
+    --success-color-light: rgba(29, 155, 123, 0.2);
+    --success-color-dark: #1a8a6d;
+  
+    /* Info Colors */
+    --info-color: #24bee6;
+    --info-color-light: rgba(36, 190, 230, 0.2);
+    --info-color-dark: #19b4dc;
+  
+    /* Warning Colors */
+    --warning-color: #ffb60b;
+    --warning-color-light: rgba(255, 182, 11, 0.2);
+    --warning-color-dark: #f6ac00;
+  
+    /* Danger Colors */
+    --danger-color: #da3746;
+    --danger-color-light: rgba(218, 55, 70, 0.2);
+    --danger-color-dark: #d52737;
+  
+    /* Dark Colors */
+    --dark-color: #183b56;
+    --dark-color-light: rgba(24, 59, 86, 0.2);
+    --dark-color-dark: #143046;
+  
+    /* Light Colors */
+    --light-color: #f8f9fc;
+    --light-color-light: rgba(248, 249, 252, 0.2);
+    --light-color-dark: #eaedf6;
+  
+    /* Other Colors */
+    --purple-color: #766df4;
+    --cyan-color: #00e6e6;
+    --blue-color: #1f86ef;
+    --orange-color: #e46e2a;
+    --pink-color: #f13e74;
+    --white-color: #ffffff;
+    --white-70-color: rgba(255, 255, 255, 0.7);
+    --muted-color: #838485;
+  }
+  
