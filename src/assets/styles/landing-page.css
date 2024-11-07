@@ -143,6 +143,15 @@ body[data-bs-theme='dark'] .navbar .navbar-nav .nav-link.active {
     padding: 150px 0 50px 0 !important;
   }
 }
+@media (max-height: 700px)  {
+  .home,
+  .home-2,
+  .home-4,
+  .home-5,
+  .home-6 {
+    padding: 120px 0 50px 0 !important;
+  }
+}
 @media (max-width: 1600px) {
   .request-image img {
     display: none !important;
