@@ -1,0 +1,18 @@
+[
+  {
+    "id": "startup",
+    "name": "Startup",
+    "price": "0",
+    "interval": "/month",
+    "users": "Unlimited users",
+    "description": "For most businesses that want to optimize web query.",
+    "features": [
+      { "text": "Unlimited Apps", "enabled": true },
+      { "text": "Unlimited storage", "enabled": true },
+      { "text": "Chat Support", "enabled": true },
+      { "text": "No transaction fees", "enabled": true },
+      { "text": "Unlimited Storage", "enabled": true }
+    ],
+    "cta": { "text": "Download Now", "link": "/download" }
+  }
+]

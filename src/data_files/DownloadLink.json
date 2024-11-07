@@ -1,0 +1,25 @@
+{
+  "version": "1.1.0",
+  "links": [
+    {
+      "platform": "MacOs ( Apple Sillicon )",
+      "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0-arm64-mac.pkg"
+    },
+    {
+      "platform": "MacOs",
+      "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0-mac.pkg"
+    },
+    {
+      "platform": "MacOs Universal",
+      "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0-universal-mac.pkg"
+    },
+    {
+      "platform": "Windows",
+      "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0.msi"
+    },
+    {
+      "platform": "Linux",
+      "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0.deb"
+    }
+  ]
+}

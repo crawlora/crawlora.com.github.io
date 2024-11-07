@@ -1,0 +1,54 @@
+---
+import phoneFrameImg from '../../../pages/images/testi/phone-fream.png';
+import screenshot1 from '../../../pages/images/testi/ss/s-1.png';
+import screenshot2 from '../../../pages/images/testi/ss/s-2.png';
+import screenshot3 from '../../../pages/images/testi/ss/s-3.png';
+import screenshot4 from '../../../pages/images/testi/ss/s-4.png';
+---
+
+<section class="section app-slider bg-light" id="app">
+  <!-- start container -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title mb-5 text-center">
+          <h6 class="fw-bold text-primary mb-0">App Screen!</h6>
+          <h2 class="f-40 fs-1 fs-md-4">See our App Screenshots!</h2>
+          <p class="text-muted">
+            Explore Our Screenshots: A Glimpse into Crawlora in Action!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="swiper-container">
+          <div class="fream-phone">
+            <img src={phoneFrameImg.src} alt="Phone Frame" class="img-fluid" />
+          </div>
+
+          <div class="swiper-wrapper">
+            <div class="swiper-slide border-radius">
+              <img src={screenshot1.src} alt="Screenshot 1" class="img-fluid" />
+            </div>
+            <div class="swiper-slide border-radius">
+              <img src={screenshot2.src} alt="Screenshot 2" class="img-fluid" />
+            </div>
+            <div class="swiper-slide border-radius">
+              <img src={screenshot3.src} alt="Screenshot 3" class="img-fluid" />
+            </div>
+            <div class="swiper-slide border-radius">
+              <img src={screenshot4.src} alt="Screenshot 4" class="img-fluid" />
+            </div>
+          </div>
+
+          <!-- navigation buttons -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end container -->
+</section>
+<!-- end section -->

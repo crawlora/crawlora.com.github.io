@@ -1,0 +1,252 @@
+---
+// Import the JSON data
+import serviceSectionData from '@data/LandingPageFeature.json';
+
+import Image1 from '../../../pages/images/features/phone.png';
+import Image2 from '../../../pages/images/features/phone2.png';
+
+const featuresData = serviceSectionData;
+
+const phoneImage = { src: Image1.src };
+const phoneImage2 = { src: Image2.src };
+---
+
+<div class="section features" id="features">
+  <!-- start container -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="title mb-5 text-center">
+          <h6 class="fw-bold text-primary mb-0">Crawlora Features</h6>
+          <h2 class="f-40 fs-1 fs-md-4">Features for our app</h2>
+          <p class="text-muted">
+            Empower Your Data Journey: Explore Crawlora's Powerful Features!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <ul
+          class="nav nav-pills justify-content-center mb-3"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item mb-3" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true">Top Features</button
+            >
+          </li>
+          <li class="nav-item mb-3" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false">Smart Features</button
+            >
+          </li>
+        </ul>
+        <div class="tab-content mt-5" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+          >
+            <div class="row align-items-center">
+              <div class="col-lg-4 order-lg-first order-2">
+                <div class="features-item text-lg-end text-start">
+                  <div
+                    class="icon avatar-sm ms-lg-auto rounded-circle text-center"
+                  >
+                    <i class="mdi mdi-message-alert-outline f-24"></i>
+                  </div>
+                  <div class="content mt-3">
+                    <h5>Automated Data Crawling</h5>
+                    <p>
+                      Effortlessly collect data from multiple online sources
+                      without manual intervention.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-item text-lg-end mt-5 text-start">
+                  <div
+                    class="icon avatar-sm ms-lg-auto rounded-circle text-center"
+                  >
+                    <i class="mdi mdi-autorenew f-24"></i>
+                  </div>
+                  <div class="content mt-3">
+                    <h5>Real-Time Analytics</h5>
+                    <p>
+                      Gain instant insights with real-time data processing,
+                      allowing you to make informed decisions quickly.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-item text-lg-end mb-5 mt-5 text-start">
+                  <div
+                    class="icon avatar-sm ms-lg-auto rounded-circle text-center"
+                  >
+                    <i class="mdi mdi-eyedropper f-24"></i>
+                  </div>
+                  <div class="content mt-3">
+                    <h5>User-Friendly Interface</h5>
+                    <p>
+                      Navigate easily through an intuitive design that
+                      simplifies data aggregation and analysis.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <img
+                  src={phoneImage.src}
+                  alt="Phone Illustration"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="col-lg-4 order-last">
+                <div class="features-item">
+                  <div class="icon avatar-sm rounded-circle text-center">
+                    <i class="mdi mdi-lifebuoy f-24"></i>
+                  </div>
+                  <div class="content mt-3">
+                    <h5>Bulk Data Handling</h5>
+                    <p>
+                      Efficiently manage and analyze large datasets to uncover
+                      patterns and trends.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-item mt-5">
+                  <div class="icon avatar-sm rounded-circle text-center">
+                    <i class="mdi mdi-dropbox f-24"></i>
+                  </div>
+                  <div class="content mt-3">
+                    <h5>Data Export and Integration</h5>
+                    <p>
+                      Seamlessly export your data to various formats and
+                      integrate with major databases and reporting tools.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-item mt-5">
+                  <div class="icon avatar-sm rounded-circle text-center">
+                    <i class="mdi mdi-flask f-24"></i>
+                  </div>
+                  <div class="content mt-3">
+                    <h5>Cross-Platform Compatibility</h5>
+                    <p>
+                      Access Crawlora on various operating systems for flexible
+                      use across different devices.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+          >
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <img
+                  src={phoneImage2.src}
+                  alt="Smart Phone Illustration"
+                  class="img-fluid"
+                />
+              </div>
+
+              <div class="col-lg-6">
+                <h2 class="fs-2 fs-md-3 fs-lg-4 mb-4">Smart Features</h2>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="features-box mt-4">
+                      <div class="d-flex">
+                        <div class="icon">
+                          <i class="mdi mdi-check-circle f-20 me-2"></i>
+                        </div>
+                        <div class="heading">
+                          <h6 class="mt-1">Customizable Search Filters</h6>
+                          <p class="text-muted">
+                            Tailor your data searches with flexible filtering
+                            options to focus on the most relevant information.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="features-box mt-4">
+                      <div class="d-flex">
+                        <div class="icon">
+                          <i class="mdi mdi-check-circle f-20 me-2"></i>
+                        </div>
+                        <div class="heading">
+                          <h6 class="mt-1">Advanced Machine Learning</h6>
+                          <p class="text-muted">
+                            Leverage AI-driven insights to enhance data accuracy
+                            and prediction capabilities.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="features-box mt-4">
+                      <div class="d-flex">
+                        <div class="icon">
+                          <i class="mdi mdi-check-circle f-20 me-2"></i>
+                        </div>
+                        <div class="heading">
+                          <h6 class="mt-1">Comprehensive Reporting</h6>
+                          <p class="text-muted">
+                            Generate detailed reports that visualize your data
+                            and highlight key performance indicators.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="features-box mt-4">
+                      <div class="d-flex">
+                        <div class="icon">
+                          <i class="mdi mdi-check-circle f-20 me-2"></i>
+                        </div>
+                        <div class="heading">
+                          <h6 class="mt-1">Secure Data Management</h6>
+                          <p class="text-muted">
+                            Ensure compliance and data security with robust
+                            handling protocols and cloud infrastructure.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end container -->
+</div>

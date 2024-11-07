@@ -1,0 +1,37 @@
+---
+const { name, role, imgSrc, altText } = Astro.props;
+---
+
+<div class="col-lg-3 col-md-6">
+  <div class="team-box">
+    <div class="row justify-content-end">
+      <div class="col-lg-9 col-10">
+        <div class="team-image text-end">
+          <img src={imgSrc} alt={altText} class="img-fluid" />
+        </div>
+        <div class="team-icon">
+          <div class="d-flex mt-2">
+            <div class="social-icon facebook mx-2">
+              <a href="#"> <i class="mdi mdi-facebook f-20"></i></a>
+            </div>
+            <div class="social-icon instagram mx-2">
+              <a href="#"><i class="mdi mdi-instagram f-20"></i></a>
+            </div>
+            <div class="social-icon twitter mx-2">
+              <a href="#"><i class="mdi mdi-twitter f-20"></i></a>
+            </div>
+            <div class="social-icon linkedin mx-2">
+              <a href="#"><i class="mdi mdi-linkedin f-20"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="team-info position-absolute">
+      <h6>
+        {name}
+        <span class="f-14 text-muted fw-normal"> / {role}</span>
+      </h6>
+    </div>
+  </div>
+</div>

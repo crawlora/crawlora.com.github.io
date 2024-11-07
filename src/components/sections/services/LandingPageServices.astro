@@ -1,0 +1,46 @@
+---
+import serviceSectionData from '@data/LandingPageServices.json';
+---
+
+<section class="section service bg-light" id="service">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="title mb-5 text-center">
+          <h6 class="fw-bold text-primary mb-0">What We Do?</h6>
+          <h2 class="f-40 fs-1 fs-md-4">How Can This Tool Benefit You?</h2>
+          <div class="border-phone">
+            <p class="text-muted">
+              Discover How Crawlora Can Transform Your Data into Valuable
+              Business Insights.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-between">
+      {
+        serviceSectionData.services.map((service) => (
+          <div class="col-lg-4 pt-lg-0 pt-4">
+            <div
+              class={`service-box text-center ${service.shadow ? 'shadow' : ''}`}
+            >
+              <div class="service-icon p-4">
+                <div class="service-circle">
+                  <i class={`${service.icon} text-gradiant f-30`} />
+                </div>
+              </div>
+              <div class="service-content mt-4">
+                <a href="#">
+                  <h5 class="fw-bold">{service.title}</h5>
+                </a>
+                <p class="text-muted">{service.description}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+import pricingData from '@data/LandingPageprice.json';
+
+const checkIcon =
+  'mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle';
+const closeIcon =
+  'mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle';
+---
+
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="title mb-5 text-center">
+          <h6 class="fw-bold text-primary mb-0">What's Your Price!</h6>
+          <h2 class="f-40 fs-1 fs-md-4">Pricing plans!</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-center">
+      {
+        pricingData.map((plan) => (
+          <div class="col-lg-6">
+            <div
+              class={`price-item mt-lg-0 mt-4 overflow-hidden shadow-sm ${plan.id === 'startup' ? 'active' : ''}`}
+            >
+              {plan.id === 'startup' && (
+                <div class="topbar-header bg-primary py-2 text-center">
+                  <h6 class="fw-normal mb-0 text-white">Recommended For You</h6>
+                </div>
+              )}
+              <div class="price-up-box p-4">
+                <div class="badge bg-primary fw-normal f-14">{plan.name}</div>
+                <div class="price-tag mt-2">
+                  <h2
+                    class={
+                      plan.id === 'basic'
+                        ? 'f-40 mb-0 text-white'
+                        : 'text-dark f-40 mb-0'
+                    }
+                  >
+                    <sup class="f-22 fw-normal">$</sup>
+                    {plan.price}
+                    <sup class="f-16 fw-normal"> {plan.interval}</sup>
+                  </h2>
+                </div>
+                <p
+                  class={
+                    plan.id === 'basic'
+                      ? 'text-white-50 mb-1'
+                      : 'text-muted mb-1'
+                  }
+                >
+                  {plan.users}
+                </p>
+                <p
+                  class={
+                    plan.id === 'basic'
+                      ? 'text-white-50 mb-0'
+                      : 'text-muted mb-0'
+                  }
+                >
+                  {plan.description}
+                </p>
+              </div>
+              <div class="price-down-box p-4">
+                <ul class="list-unstyled">
+                  {plan.features.map((feature) => (
+                    <li class="mt-2">
+                      <i class={feature.enabled ? checkIcon : closeIcon} />
+                      {feature.text}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={plan.cta.link}
+                  class={`btn btn-sm ${plan.id === 'basic' ? 'text-primary' : 'btn-primary'} mt-3`}
+                >
+                  <i class="mdi mdi-check-all me-2" />
+                  {plan.cta.text}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

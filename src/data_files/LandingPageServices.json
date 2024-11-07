@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "icon": "mdi mdi-security",
+      "title": "Streamlined Data Aggregation",
+      "description": "Crawlora automates the process of collecting data from multiple online platforms, saving you time and effort while ensuring you have access to comprehensive insights for informed decision-making.",
+      "shadow": false
+    },
+    {
+      "icon": "mdi mdi-lightbulb-on",
+      "title": "Actionable Insights",
+      "description": "With advanced analytics and real-time processing, Crawlora transforms raw data into actionable insights, helping you identify trends, monitor competitors, and optimize your marketing strategies effectively.",
+      "shadow": true
+    },
+    {
+      "icon": "mdi mdi-google-nearby",
+      "title": "User-Friendly Interface",
+      "description": "Designed with ease of use in mind, Crawlora offers an intuitive interface that simplifies complex data analysis, enabling users of all skill levels to harness the power of data without a steep learning curve.",
+      "shadow": false
+    }
+  ]
+}

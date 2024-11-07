@@ -1,0 +1,19 @@
+{
+  "logo": {
+    "href": "/",
+    "brandComponent": "BrandLogo"
+  },
+  "links": [
+    { "label": "Home", "href": "/" },
+    { "label": "Apps", "href": "/apps" },
+    { "label": "Services", "href": "/service" },
+    { "label": "Pricing", "href": "/pricing" },
+    { "label": "Blogs", "href": "/blog" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "button": {
+    "label": "Download",
+    "href": "/download",
+    "class": "btn bg-gradiant"
+  }
+}
