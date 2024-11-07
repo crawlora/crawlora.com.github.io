@@ -1,5 +1,5 @@
 ---
-const { name, role, imgSrc, altText } = Astro.props;
+const { name, role, imgSrc, altText, link } = Astro.props;
 ---
 
 <div class="col-lg-3 col-md-6">
@@ -10,8 +10,8 @@ const { name, role, imgSrc, altText } = Astro.props;
           <img src={imgSrc} alt={altText} class="img-fluid" />
         </div>
         <div class="team-icon">
-          <div class="d-flex mt-2">
-            <div class="social-icon facebook mx-2">
+          <div class="d-flex mt-2 justify-center">
+            <!-- <div class="social-icon facebook mx-2">
               <a href="#"> <i class="mdi mdi-facebook f-20"></i></a>
             </div>
             <div class="social-icon instagram mx-2">
@@ -19,9 +19,9 @@ const { name, role, imgSrc, altText } = Astro.props;
             </div>
             <div class="social-icon twitter mx-2">
               <a href="#"><i class="mdi mdi-twitter f-20"></i></a>
-            </div>
+            </div> -->
             <div class="social-icon linkedin mx-2">
-              <a href="#"><i class="mdi mdi-linkedin f-20"></i></a>
+              <a href={link}><i class="mdi mdi-linkedin f-20"></i></a>
             </div>
           </div>
         </div>
