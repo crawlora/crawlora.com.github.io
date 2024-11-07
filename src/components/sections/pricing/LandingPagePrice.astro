@@ -7,7 +7,7 @@ const closeIcon =
   'mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle';
 ---
 
-<section class="section pricing" id="pricing">
+<section class="section pricing bg-light" id="pricing">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
@@ -20,7 +20,7 @@ const closeIcon =
     <div class="row align-items-center justify-content-center">
       {
         pricingData.map((plan) => (
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div
               class={`price-item mt-lg-0 mt-4 overflow-hidden shadow-sm ${plan.id === 'startup' ? 'active' : ''}`}
             >

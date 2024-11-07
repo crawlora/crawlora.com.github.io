@@ -2,9 +2,11 @@
 // Import the JSON data
 import Image1 from '../../../pages/images/features/phone.png';
 import Image2 from '../../../pages/images/features/phone2.png';
+import DarkImage from '../../../pages/images/features/phoneDark.png';
 
 const phoneImage = { src: Image1.src };
 const phoneImage2 = { src: Image2.src };
+const phoneImageDark = { src: DarkImage.src };
 ---
 
 <div class="section features" id="features">
@@ -108,7 +110,7 @@ const phoneImage2 = { src: Image2.src };
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-4 mb-4">
                 <img
                   src={phoneImage.src}
                   alt="Phone Illustration"
@@ -164,11 +166,18 @@ const phoneImage2 = { src: Image2.src };
             aria-labelledby="pills-profile-tab"
           >
             <div class="row align-items-center">
-              <div class="col-lg-6">
+              <div class="col-lg-6 mb-4">
                 <img
                   src={phoneImage2.src}
                   alt="Smart Phone Illustration"
-                  class="img-fluid"
+                  class="img-fluid hidden"
+                  id="light-image"
+                />
+                <img
+                  src={phoneImageDark.src}
+                  alt="dark image"
+                  class="img-fluid hidden"
+                  id="dark-image"
                 />
               </div>
 
@@ -246,3 +255,41 @@ const phoneImage2 = { src: Image2.src };
   </div>
   <!-- end container -->
 </div>
+<script is:inline>
+  const toggleImage = () => {
+    const dataMode = document.body.getAttribute('data-bs-theme');
+    document.getElementById('light-image')?.classList.add('hidden');
+    document.getElementById('dark-image')?.classList.add('hidden');
+    if (dataMode === 'dark') {
+      document.getElementById('dark-image')?.classList.remove('hidden');
+    } else {
+      document.getElementById('light-image')?.classList.remove('hidden');
+    }
+  };
+
+  window.addEventListener('DOMContentLoaded', toggleImage);
+
+  window.addEventListener('click', (event) => {
+    // Get the current theme from the 'data-bs-theme' attribute on the body
+    const dataMode = document.body.getAttribute('data-bs-theme');
+
+    // Check if the clicked target is one of the mode toggle buttons
+    if (
+      event.target &&
+      ['mode-light', 'mode-dark'].some((item) =>
+        event.target.classList.contains(item)
+      )
+    ) {
+      // Hide both images first
+      document.getElementById('light-image')?.classList.add('hidden');
+      document.getElementById('dark-image')?.classList.add('hidden');
+
+      // Show the appropriate image based on the current dataMode
+      if (dataMode === 'dark') {
+        document.getElementById('light-image')?.classList.remove('hidden');
+      } else {
+        document.getElementById('dark-image')?.classList.remove('hidden');
+      }
+    }
+  });
+</script>

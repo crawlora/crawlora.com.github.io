@@ -6,7 +6,7 @@
   "links": [
     { "label": "Home", "href": "/" },
     { "label": "Apps", "href": "/apps" },
-    { "label": "Services", "href": "/service" },
+    { "label": "Services", "href": "/services" },
     { "label": "Pricing", "href": "/pricing" },
     { "label": "Blogs", "href": "/blog" },
     { "label": "Contact", "href": "/contact" }
