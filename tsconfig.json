@@ -20,9 +20,5 @@
       "@styles/*": ["src/assets/styles/*"],
       "@utils/*": ["src/utils/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/@types"  // Include your custom types directory
-    ]
   }
 }

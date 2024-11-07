@@ -2,7 +2,6 @@
 import '@styles/landing-page.css';
 
 import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
-import { Image } from 'astro:assets';
 // Navbar
 import LandingPageNav from '@/components/sections/navbar&footer/landingPageNav.astro';
 
@@ -18,27 +17,11 @@ import LanginPageFeature from '@/components/sections/features/LanginPageFeature.
 //price
 import LandingPagePrice from '@/components/sections/pricing/LandingPagePrice.astro';
 
-//testimonials
-import img1 from './images/testi/img-1.png';
-import img2 from './images/testi/img-2.png';
-import img3 from './images/testi/img-3.png';
-import img4 from './images/testi/img-4.png';
-import userImg1 from './images/user/img-1.jpg';
-import userImg2 from './images/user/img-2.jpg';
-import userImg3 from './images/user/img-3.jpg';
-import userImg4 from './images/user/img-4.jpg';
-import ratingImg from './images/testi/rating-image.png';
-
 //slider
 import LandingPageScreenShot from '@/components/sections/screenshot/LandingPageScreenShot.astro';
 
 //team
 import LandingPageTeamsection from '@/components/sections/team/LandingPageTeamsection.astro';
-
-//cta
-import appStoreImage from './images/img-appstore.png';
-import googlePlayImage from './images/img-googleplay.png';
-import ctaBgImage from './images/cta-bg.webp';
 
 //contact
 import LandingPageContact from '@/components/sections/contact/LandingPageContact.astro';
@@ -121,8 +104,6 @@ import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
 </LandingPageLayout>
 
 <script>
-  import { tns } from 'tiny-slider';
-
   function windowScroll(): void {
     const navbar = document.getElementById('navbar');
     if (navbar) {
@@ -191,57 +172,10 @@ import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
       }
     }
   });
-
-  /********************* Swicher js ************************/
-
-  function toggleSwitcher(): void {
-    const switcher = document.getElementById('style-switcher');
-    if (switcher) {
-      if (switcher.style.left === '-189px') {
-        switcher.style.left = '0px';
-      } else {
-        switcher.style.left = '-189px';
-      }
-    }
-  }
-
-  function setColor(theme: string): void {
-    const colorOpt = document.getElementById('color-opt') as HTMLLinkElement;
-    if (colorOpt) {
-      colorOpt.href = './css/colors/' + theme + '.css';
-    }
-    toggleSwitcher();
-  }
-
-  // ********** tiny slider ** testi **
-
-  const slider = tns({
-    container: '.testi-slider',
-    loop: true,
-    autoplay: false,
-    mouseDrag: true,
-    controls: false,
-    navPosition: 'bottom',
-    nav: true,
-    autoplayTimeout: 5000,
-    speed: 900,
-    center: false,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-    controlsText: ['&#8592;', '&#8594;'],
-    autoplayButtonOutput: false,
-    gutter: 30,
-    responsive: {
-      992: {
-        gutter: 30,
-        items: 1.2,
-      },
-    },
-  });
 </script>
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.swiper-container', {
+    new Swiper('.swiper-container', {
       loop: true,
       slidesPerView: 3,
       spaceBetween: 30,
@@ -295,15 +229,5 @@ import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
     toggleButton.addEventListener('click', () => {
       navbarCollapse.classList.toggle('show');
     });
-  });
-</script>
-<script is:inline>
-  import * as bootstrap from 'bootstrap';
-
-  const tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]')
-  );
-  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
   });
 </script>
