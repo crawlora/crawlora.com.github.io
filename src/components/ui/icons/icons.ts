@@ -179,6 +179,7 @@ export const Icons = {
     class: "size-4 flex-shrink-0 fill-current",
     viewBox: "0 0 24 24",
     stroke: "currentColor",
+    title: "linkedIn",
   },
   share: {
     paths: [

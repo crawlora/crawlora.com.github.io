@@ -2195,29 +2195,12 @@ body[data-bs-theme='dark'] .features-box h6 {
   width: 100%;
 }
 
- /* @media (max-width: 1024px) {
-  .app-slider .swiper-container {
-    padding: 36px 0 205px 0;
-  }
-  .app-slider .swiper-container .frame-phone {
-    width: 637px;
-  }
-} */
-/*
-@media (max-width: 992px) {
-  .testimonial #testi-slider-iw {
-    margin: 0 !important;
-  }
-  .app-slider .swiper-container {
-    padding: 36px 0 207px 0;
-  }
-  .app-slider .swiper-container .frame-phone {
-    width: 633px;
-  }
-} */
 @media (max-width: 768px) {
   .frame-phone {
     display: none;
+  }
+  .app-slider .swiper-container {
+    padding: 0 0 50px 0;
   }
 }
 body[data-bs-theme='dark'] .testimonial {

@@ -45,7 +45,48 @@ const socialLinks = {
     "https://join.slack.com/t/dataminer-site/shared_invite/zt-2lvmboppf-FPPVWGwXDz6YAaLC5aYGTg",
 };
 
+const FooterSocialLinks = [
+  {
+    "href": "https://join.slack.com/t/dataminer-site/shared_invite/zt-2lvmboppf-FPPVWGwXDz6YAaLC5aYGTg",
+    "icon": "slackFooter"
+  },
+  {
+    "href": "https://x.com/crawlora",
+    "icon": "xFooter"
+  },
+  {
+    "href": "https://www.linkedin.com/company/crawlora/",
+    "icon": "linkedIn"
+  },
+  {
+    "href": "https://github.com/crawlora-com",
+    "icon": "githubFooter"
+  }
+]
+
+const FooterSection =[
+  {
+    "title": "Ecosystem",
+    "links": [
+      { "text": "Documentation", "href": "/welcome-to-docs/" },
+      { "text": "Apps", "href": "/apps" },
+      { "text": "Api Doc", "href": "https://apidoc.crawlora.com/?cta=homepage-footer" }
+    ]
+  },
+  {
+    "title": "Info",
+    "links": [
+      { "text": "Use Cases", "href": "#" },
+      { "text": "Blog", "href": "/blog" },
+      { "text": "FAQs", "href": "/faq" },
+      { "text": "Customers", "href": "#" }
+    ]
+  }
+] 
+
 export default {
+  FooterSection,
+  FooterSocialLinks,
   navBarLinks,
   footerLinks,
   socialLinks,
