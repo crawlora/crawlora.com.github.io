@@ -15,7 +15,7 @@ import '@styles/blog.css';
 export async function getStaticPaths() {
   const blogPosts = await Posts.get(POST_TYPES.BLOGS);
   const data = await Promise.all(
-    blogPosts.map(async (post) => {
+    blogPosts.map(async (post: any) => {
       //get author
       const getAuthor = await User.get(post.author);
       const getTags = post.tags ? await Tags.from(post.tags) : [];
@@ -50,7 +50,7 @@ const pageTitle: string = `${post.title.rendered} | ${SITE.title}`;
   <section class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
     <div class="max-w-2xl">
       <div class="mb-6 flex items-center justify-between">
-        <div class="font-inter flex w-full gap-x-5 sm:items-center sm:gap-x-3">
+        <div class="flex w-full gap-x-5 font-inter sm:items-center sm:gap-x-3">
           <AvatarBlogLarge author={post.authorInfo} />
           <div class="grow">
             <div class="flex items-center justify-between gap-x-2">
@@ -78,10 +78,10 @@ const pageTitle: string = `${post.title.rendered} | ${SITE.title}`;
       </div>
       <!--Blog post title-->
       <h1
-        class="font-cardo mb-3 text-2xl font-[400] text-neutral-800 dark:text-neutral-200 md:text-3xl"
+        class="mb-3 font-cardo text-2xl font-[400] text-neutral-800 dark:text-neutral-200 md:text-3xl"
       >
         {post.title.rendered}
-      </h2>
+      </h1>
       <!--Blog post contents-->
       <div
         class="blog-wrapper mb-5 space-y-5 dark:text-neutral-200 md:mb-8 md:space-y-8 md:text-3xl"
@@ -94,8 +94,8 @@ const pageTitle: string = `${post.title.rendered} | ${SITE.title}`;
         <!--Blog post tags-->
         <div class="gap-x-2 gap-y-1 sm:flex-nowrap sm:items-center sm:gap-y-0">
           {
-            post.getTags?.map((tag) => (
-              <span class="font-inter mb-1 ml-1 inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
+            post.getTags?.map((tag: any) => (
+              <span class="mb-1 ml-1 inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 font-inter text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
                 {capitalize(tag.name)}
               </span>
             ))

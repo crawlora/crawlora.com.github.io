@@ -4,7 +4,7 @@ const { name, role, imgSrc, altText, link } = Astro.props;
 
 <div class="col-lg-3 col-md-6">
   <div class="team-box">
-    <div class="row justify-content-end">
+    <div class="flex flex-row-reverse justify-around">
       <div class="col-lg-9 col-10">
         <div class="team-image text-end">
           <img src={imgSrc} alt={altText} class="img-fluid" />
@@ -26,12 +26,21 @@ const { name, role, imgSrc, altText, link } = Astro.props;
           </div>
         </div>
       </div>
-    </div>
-    <div class="team-info position-absolute">
-      <h6>
-        {name}
-        <span class="f-14 text-muted fw-normal"> / {role}</span>
-      </h6>
+      <div class="roted-text flex items-start pt-[45px]">
+        <h6 class="vertical-text">
+          {name}
+          <span class="f-14 text-muted fw-normal">/ {role}</span>
+        </h6>
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+  .vertical-text {
+    writing-mode: vertical-rl;
+  }
+  .roted-text {
+    transform: rotate(180deg);
+  }
+</style>

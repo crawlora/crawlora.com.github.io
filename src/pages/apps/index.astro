@@ -1,11 +1,13 @@
 ---
 // Importing necessary components
 import MainLayout from '@/layouts/MainLayout.astro';
-
 import { SITE } from '@data/constants';
-import CardCommingSoon from '@/components/ui/cards/CardCommingSoon.astro';
+import { app } from '../../api';
 
 const pageTitle: string = `Products | ${SITE.title}`;
+
+//! @to-do: handle pagination
+const results = await app.get()
 ---
 
 <MainLayout
@@ -31,52 +33,123 @@ const pageTitle: string = `Products | ${SITE.title}`;
   <!-- <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   > -->
-  <CardCommingSoon />
+  <!-- <CardCommingSoon /> -->
 
-  <!-- <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-        >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
-          )
-        }
-      </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
-    </div> -->
-  <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-  <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-  <!-- <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
-        })
-      }
-    </section> -->
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
+    {results.data && results.data.length > 0 && results.data.map((app:any) => (
+      <div 
+        class="cursor-pointer w-full" >
+        <a href={`/apps/${app.id}`} class="w-full">
+          <div class="hover:shadow-lg transition-shadow dark:shadow-black  relative rounded-md overflow-hidden shadow-xl">
+            <!-- Banner and Avatar -->
+            <div class="relative">
+              <img src={app.banner} alt={app.title || '-'} class="w-full h-40 object-cover rounded-t-md" />
+              <div class="absolute w-[80px] bottom-[-38px] left-[25px]">
+                <img src={app.icon} alt="App Icon" class="rounded-full" />
+              </div>
+            </div>
+
+            <div class="p-4 flex flex-col justify-between min-h-[212px]">
+              <div class="mt-10">
+                <h1 class="mt-4 text-black dark:text-white font-bold truncate">
+                  {app.title}
+                </h1>
+                <h2 class="text-gray-700 dark:text-gray-300 truncate">
+                 {app.short_description}
+                </h2>
+                <h3 class="mt-2 text-gray-600 dark:text-gray-400 font-light">
+                  By {app.author}
+                </h3>
+              </div>
+              <div class="mt-4 flex items-center space-x-3 justify-end">
+                <button class="btn install-btn">
+                  Install
+                </button>
+
+                <button class="btn tryout-btn">
+                  Try Out
+                </button>
+
+                <button class="btn info-btn">
+                  Info
+                </button>
+              </div>
+            </div>
+          </div>
+        </a>
+  </div>
+    ))}
+   
+</div>
+  <style>
+    /* General Button Styles */
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn i {
+  margin-right: 8px;
+}
+
+/* Install Button (Green) */
+.install-btn {
+  background-color: #fa5a15;
+  color: white;
+}
+
+.install-btn:hover {
+  background-color: #d19f8a;
+}
+
+.install-icon::before {
+  content: '\f019'; /* Icon (using Font Awesome or similar library) */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+/* Try Out Button (Blue) */
+.tryout-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.tryout-btn:hover {
+  background-color: #0056b3;
+}
+
+.tryout-icon::before {
+  content: '\f04b'; /* Icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+/* Info Button (Light Blue) */
+.info-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.info-btn:hover {
+  background-color: #138496;
+}
+
+.info-icon::before {
+  content: '\f05a'; /* Icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+  </style>
+
+  
 </MainLayout>
-<!--Features statistics section-->
-<!-- <FeaturesStatsAlt
-    title="Why Choose Crawlora?"
-    subTitle="Transform your ideas into tangible results with Crawlora tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
-    benefits={[
-      'Robust and reliable tools for long-lasting performance.',
-      'Innovative solutions tailored to modern construction needs.',
-      "Customer support dedicated to your project's success.",
-    ]}
-  /> -->
-<!--Testimonials section-->
-<!-- <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  /> -->
+

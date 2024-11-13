@@ -1,4 +1,6 @@
 ---
+import LandingPageNav from '@/components/sections/navbar&footer/landingPageNav.astro';
+import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
 import Meta from '@components/Meta.astro';
 import { SITE } from '@data/constants';
 
@@ -37,10 +39,13 @@ interface Props {
     <script src="/src/pwa.ts"></script>
   </head>
   <body data-bs-spy="scroll" class="">
+    <!-- NAVBAR -->
+    <LandingPageNav />
     <main>
       <slot />
     </main>
-
+    <!-- footer section -->
+    <LpageFooter />
     <style>
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
