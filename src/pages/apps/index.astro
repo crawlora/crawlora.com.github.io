@@ -1,13 +1,18 @@
 ---
-// Importing necessary components
 import MainLayout from '@/layouts/MainLayout.astro';
 import { SITE } from '@data/constants';
 import { app } from '../../api';
 
-const pageTitle: string = `Products | ${SITE.title}`;
+import '@styles/product.css';
 
-//! @to-do: handle pagination
-const results = await app.get()
+const pageTitle: string = `Products | ${SITE.title}`;
+let results = [];
+try {
+  const response = await app.get();
+  results = response.data || [];
+} catch (error) {
+  console.error('Failed to fetch products:', error);
+}
 ---
 
 <MainLayout
@@ -30,126 +35,62 @@ const results = await app.get()
     inLanguage: 'en-US',
   }}
 >
-  <!-- <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  > -->
-  <!-- <CardCommingSoon /> -->
-
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
-    {results.data && results.data.length > 0 && results.data.map((app:any) => (
-      <div 
-        class="cursor-pointer w-full" >
-        <a href={`/apps/${app.id}`} class="w-full">
-          <div class="hover:shadow-lg transition-shadow dark:shadow-black  relative rounded-md overflow-hidden shadow-xl">
-            <!-- Banner and Avatar -->
-            <div class="relative">
-              <img src={app.banner} alt={app.title || '-'} class="w-full h-40 object-cover rounded-t-md" />
-              <div class="absolute w-[80px] bottom-[-38px] left-[25px]">
-                <img src={app.icon} alt="App Icon" class="rounded-full" />
+  <div class="my-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      results.data.length > 0 ? (
+        results.data.map((app: any) => {
+          return (
+            <Fragment>
+              <div class="w-full cursor-pointer">
+                <a href={`/apps/${app.id}`} class="w-full">
+                  <div class="relative overflow-hidden rounded-md shadow-xl transition-shadow hover:shadow-lg dark:shadow-black">
+                    <div class="relative">
+                      <img
+                        src={app.banner}
+                        alt={app.title || '-'}
+                        class="h-40 w-full rounded-t-md object-cover"
+                      />
+                      <div class="absolute bottom-[-38px] left-[25px] w-[80px]">
+                        <img
+                          src={app.icon}
+                          alt="App Icon"
+                          class="rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="flex min-h-[212px] flex-col justify-between p-4">
+                      <div class="mt-10">
+                        <h1 class="mt-4 truncate font-bold text-black dark:text-white">
+                          {app.title}
+                        </h1>
+                        <h2 class="truncate text-gray-700 dark:text-gray-300">
+                          {app.short_description}
+                        </h2>
+                        <h3 class="mt-2 font-light text-gray-600 dark:text-gray-400">
+                          By {app.author}
+                        </h3>
+                      </div>
+                      <div class="mt-4 flex items-center justify-end space-x-3">
+                        <a href="/download" class="btn install-btn">
+                          Install
+                        </a>
+                        <a href="/download" class="btn tryout-btn min-w-[90px]">
+                          Try Out
+                        </a>
+                        <a href={`/apps/${app.id}`} class="btn info-btn">
+                          Info
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
-            </div>
-
-            <div class="p-4 flex flex-col justify-between min-h-[212px]">
-              <div class="mt-10">
-                <h1 class="mt-4 text-black dark:text-white font-bold truncate">
-                  {app.title}
-                </h1>
-                <h2 class="text-gray-700 dark:text-gray-300 truncate">
-                 {app.short_description}
-                </h2>
-                <h3 class="mt-2 text-gray-600 dark:text-gray-400 font-light">
-                  By {app.author}
-                </h3>
-              </div>
-              <div class="mt-4 flex items-center space-x-3 justify-end">
-                <button class="btn install-btn">
-                  Install
-                </button>
-
-                <button class="btn tryout-btn">
-                  Try Out
-                </button>
-
-                <button class="btn info-btn">
-                  Info
-                </button>
-              </div>
-            </div>
-          </div>
-        </a>
+            </Fragment>
+          );
+        })
+      ) : (
+        <p>No products found.</p>
+      )
+    }
   </div>
-    ))}
-   
-</div>
-  <style>
-    /* General Button Styles */
-.btn {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn i {
-  margin-right: 8px;
-}
-
-/* Install Button (Green) */
-.install-btn {
-  background-color: #fa5a15;
-  color: white;
-}
-
-.install-btn:hover {
-  background-color: #d19f8a;
-}
-
-.install-icon::before {
-  content: '\f019'; /* Icon (using Font Awesome or similar library) */
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
-
-/* Try Out Button (Blue) */
-.tryout-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.tryout-btn:hover {
-  background-color: #0056b3;
-}
-
-.tryout-icon::before {
-  content: '\f04b'; /* Icon */
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
-
-/* Info Button (Light Blue) */
-.info-btn {
-  background-color: #17a2b8;
-  color: white;
-}
-
-.info-btn:hover {
-  background-color: #138496;
-}
-
-.info-icon::before {
-  content: '\f05a'; /* Icon */
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
-
-  </style>
-
-  
 </MainLayout>
-

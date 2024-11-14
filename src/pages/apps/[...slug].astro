@@ -5,21 +5,21 @@ import { SITE } from '@data/constants';
 import SwiperModal from './swiperModal.astro';
 import Md from '../../components/ui/md.astro';
 import { app } from '../../api';
+import '@styles/product.css';
 
 // src/layouts/BaseLayout.astro
 
 export async function getStaticPaths() {
-  const appsData = await app.get();
+  const { data: resData } = await app.get();
 
   const data = await Promise.all(
-    appsData.data.map(async (d: { id: any }) => {
-      const productDetail = await app.getById(d.id);
-      const pInfo = await productDetail.json();
+    resData.data.map(async (d: { id: any }) => {
+      const { data: pInfo } = await app.getById(d.id);
       return {
         params: { slug: d.id },
         props: {
           product: {
-            ...pInfo.data,
+            ...pInfo,
           },
         },
       };
@@ -36,7 +36,7 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
 
 <MainLayout title={pageTitle}>
   <div
-    class="mb-20 mt-20 p-8 shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] dark:bg-[#171717]"
+    class="mb-20 mt-20 rounded-lg p-8 shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] dark:bg-[#171717]"
   >
     <div class="mx-auto max-w-5xl">
       <!-- Product Info Section -->
@@ -56,8 +56,8 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
             </h2>
           </div>
           <div class="mt-4 flex h-[40px] space-x-3 sm:mt-0">
-            <button class="btn install-btn"> Install </button>
-            <button class="btn tryout-btn"> Try Out </button>
+            <a href="/download" class="btn install-btn"> Install </a>
+            <a href="/download" class="btn tryout-btn"> Try Out </a>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
 
       <!-- Product Information -->
       <div
-        class="rounded-lg bg-neutral-300 p-6 text-neutral-600 dark:bg-[#171717] dark:text-neutral-400"
+        class="rounded-lg bg-neutral-300 p-6 text-neutral-600 dark:bg-[#171717] dark:text-white"
       >
         <h3 class="text-2xl font-semibold">App Information</h3>
         <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -119,53 +119,3 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
   </div>
   <SwiperModal screenshots={product.screenshots} />
 </MainLayout>
-
-<style>
-  .btn {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .btn i {
-    margin-right: 8px;
-  }
-
-  /* Install Button (Green) */
-  .install-btn {
-    background-color: #fa5a15;
-    color: white;
-  }
-
-  .install-btn:hover {
-    background-color: #d19f8a;
-  }
-
-  .install-icon::before {
-    content: '\f019'; /* Icon (using Font Awesome or similar library) */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-  }
-
-  /* Try Out Button (Blue) */
-  .tryout-btn {
-    background-color: #007bff;
-    color: white;
-  }
-
-  .tryout-btn:hover {
-    background-color: #0056b3;
-  }
-
-  .tryout-icon::before {
-    content: '\f04b'; /* Icon */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-  }
-</style>
