@@ -1,0 +1,13 @@
+---
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+
+const { content } = Astro.props;
+
+const process = await createMarkdownProcessor({});
+
+const { code } = await process.render(content);
+---
+
+<div class="markdown">
+  <Fragment set:html={code} />
+</div>

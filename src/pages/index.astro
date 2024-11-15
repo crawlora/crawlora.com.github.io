@@ -2,8 +2,6 @@
 import '@styles/landing-page.css';
 
 import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
-// Navbar
-import LandingPageNav from '@/components/sections/navbar&footer/landingPageNav.astro';
 
 // Home section
 import LandingHero from '@/components/sections/landing/LandingHero.astro';
@@ -25,9 +23,6 @@ import LandingPageTeamsection from '@/components/sections/team/LandingPageTeamse
 
 //contact
 import LandingPageContact from '@/components/sections/contact/LandingPageContact.astro';
-
-//footer
-import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
 ---
 
 <LandingPageLayout>
@@ -35,14 +30,11 @@ import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
     <i class="uil uil-brightness mode-dark mx-auto"></i>
     <i class="uil uil-moon bx-spin mode-light"></i>
   </a>
-  <!-- START  NAVBAR -->
-  <LandingPageNav />
 
   <!-- home section -->
   <LandingHero />
 
   <!-- service section -->
-
   <LandingPageServices />
 
   <!-- start features -->
@@ -59,9 +51,6 @@ import LpageFooter from '@/components/sections/navbar&footer/LpageFooter.astro';
 
   <!-- contact section -->
   <LandingPageContact />
-
-  <!-- footer section -->
-  <LpageFooter />
 </LandingPageLayout>
 
 <script>

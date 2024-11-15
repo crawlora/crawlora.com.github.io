@@ -1,0 +1,196 @@
+
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn i {
+  margin-right: 8px;
+}
+
+/* Install Button (Green) */
+.install-btn {
+  background-color: #fa5a15;
+  color: white;
+}
+
+.install-btn:hover {
+  background-color: #d19f8a;
+}
+
+.install-icon::before {
+  content: '\f019'; /* Icon (using Font Awesome or similar library) */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+/* Try Out Button (Blue) */
+.tryout-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.tryout-btn:hover {
+  background-color: #0056b3;
+}
+
+.tryout-icon::before {
+  content: '\f04b'; /* Icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+/* Info Button (Light Blue) */
+.info-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.info-btn:hover {
+  background-color: #138496;
+}
+
+.info-icon::before {
+  content: '\f05a'; /* Icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+
+
+/* Base markdown container styles for light background */
+.markdown {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 1em;
+    border-radius: 5px;
+  }
+  
+  /* Headings */
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .markdown h2 {
+    border-bottom: 1px solid rgb(114, 113, 113);
+    font-size: 24px;
+  }
+  
+  .markdown h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .markdown hr {
+    background: transparent;
+    background-color: #7271714d;
+    border: 0;
+    box-sizing: content-box;
+    height: 0.25em;
+    margin: 24px 0;
+    overflow: hidden;
+    padding: 0;
+  }
+  
+  /* Paragraphs */
+  .markdown p {
+    margin: 0.5em 0;
+  }
+  
+  /* Links */
+  .markdown a {
+    text-decoration: none;
+    max-width: 100%;
+    display: inline-block;
+  }
+  
+  .markdown a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Lists */
+  .markdown ul,
+  .markdown ol {
+    padding-left: 1.5em;
+    margin: 0.5em 0;
+  }
+  
+  .markdown li {
+    margin: 0.3em 0;
+  }
+  
+  /* Blockquotes */
+  .markdown blockquote {
+    margin: 1em 0;
+    padding-left: 1em;
+    border-left: 4px solid #cbd5e0;
+    font-style: italic;
+    background-color: #f7fafc;
+  }
+  
+  /* Code blocks */
+  .markdown pre {
+    margin-top: 10px;
+    background-color: transparent !important;
+    padding: 1em;
+    border-radius: 5px;
+    overflow: auto;
+    color: #525252 !important;
+    border: 1px solid rgb(114, 113, 113);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .markdown code {
+    background-color: transparent !important;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  
+  /* Tables */
+  .markdown table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown th,
+  .markdown td {
+    padding: 0.6em;
+    border: 1px solid rgb(114, 113, 113);
+    text-align: left;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .markdown th {
+    font-weight: bold;
+  }
+  
+  /* Images */
+  .markdown img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  

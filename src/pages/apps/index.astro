@@ -1,11 +1,18 @@
 ---
-// Importing necessary components
 import MainLayout from '@/layouts/MainLayout.astro';
-
 import { SITE } from '@data/constants';
-import CardCommingSoon from '@/components/ui/cards/CardCommingSoon.astro';
+import { app } from '../../api';
+
+import '@styles/product.css';
 
 const pageTitle: string = `Products | ${SITE.title}`;
+let results = [];
+try {
+  const response = await app.get();
+  results = response.data || [];
+} catch (error) {
+  console.error('Failed to fetch products:', error);
+}
 ---
 
 <MainLayout
@@ -28,55 +35,62 @@ const pageTitle: string = `Products | ${SITE.title}`;
     inLanguage: 'en-US',
   }}
 >
-  <!-- <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  > -->
-  <CardCommingSoon />
-
-  <!-- <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-        >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
-          )
-        }
-      </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
-    </div> -->
-  <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-  <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-  <!-- <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
+  <div class="my-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      results.data.length > 0 ? (
+        results.data.map((app: any) => {
+          return (
+            <Fragment>
+              <div class="w-full cursor-pointer">
+                <a href={`/apps/${app.id}`} class="w-full">
+                  <div class="relative overflow-hidden rounded-md shadow-lg transition-shadow hover:shadow-xl dark:shadow-black">
+                    <div class="relative">
+                      <img
+                        src={app.banner}
+                        alt={app.title || '-'}
+                        class="h-40 w-full rounded-t-md object-cover"
+                      />
+                      <div class="absolute bottom-[-38px] left-[25px] w-[80px]">
+                        <img
+                          src={app.icon}
+                          alt="App Icon"
+                          class="rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div class="flex min-h-[212px] flex-col justify-between p-4">
+                      <div class="mt-10">
+                        <h1 class="mt-4 truncate font-bold text-black dark:text-white">
+                          {app.title}
+                        </h1>
+                        <h2 class="truncate text-gray-700 dark:text-gray-300">
+                          {app.short_description}
+                        </h2>
+                        <h3 class="mt-2 font-light text-gray-600 dark:text-gray-400">
+                          By {app.author}
+                        </h3>
+                      </div>
+                      <div class="mt-4 flex items-center justify-end space-x-3">
+                        <a href="/download" class="btn install-btn">
+                          Install
+                        </a>
+                        <a href="/download" class="btn tryout-btn min-w-[90px]">
+                          Try Out
+                        </a>
+                        <a href={`/apps/${app.id}`} class="btn info-btn">
+                          Info
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </Fragment>
+          );
         })
-      }
-    </section> -->
+      ) : (
+        <p>No products found.</p>
+      )
+    }
+  </div>
 </MainLayout>
-<!--Features statistics section-->
-<!-- <FeaturesStatsAlt
-    title="Why Choose Crawlora?"
-    subTitle="Transform your ideas into tangible results with Crawlora tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
-    benefits={[
-      'Robust and reliable tools for long-lasting performance.',
-      'Innovative solutions tailored to modern construction needs.',
-      "Customer support dedicated to your project's success.",
-    ]}
-  /> -->
-<!--Testimonials section-->
-<!-- <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  /> -->
