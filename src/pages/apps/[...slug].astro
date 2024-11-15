@@ -7,7 +7,7 @@ import Md from '../../components/ui/md.astro';
 import { app } from '../../api';
 import '@styles/product.css';
 import { slugify } from '@/utils/utils';
-import { Image } from 'astro:assets';
+import Image from '../../cutomIntigration/image/code/Image.astro';
 
 export async function getStaticPaths() {
   const { data: resData } = await app.get();
@@ -40,9 +40,8 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
       <!-- Product Info Section -->
       <div class="mb-8 flex flex-col items-center sm:flex-row">
         <Image
-          width={100}
-          height={100}
-          src={product.icon}
+          url={product.icon}
+          name={slugify(product.title + 'info-app-icon', product.id + '.png')}
           alt="App Icon"
           class="h-28 w-28 rounded-lg ring-2 ring-gray-300 dark:text-white"
         />
@@ -73,9 +72,11 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
               product.screenshots.map((screenshot: any, index: number) => (
                 <div class="screenshot w-full" data-index={index}>
                   <Image
-                    width={100}
-                    height={100}
-                    src={screenshot}
+                    url={screenshot}
+                    name={slugify(
+                      product.title + 'small-screenshot-icon',
+                      product.id + '.png'
+                    )}
                     alt={`Screenshot ${index + 1}`}
                     class="h-32 w-full rounded-lg object-cover"
                   />
@@ -117,5 +118,9 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
       </div>
     </div>
   </div>
-  <SwiperModal screenshots={product.screenshots} />
+  <SwiperModal
+    title={product.title}
+    id={product.id}
+    screenshots={product.screenshots}
+  />
 </MainLayout>
