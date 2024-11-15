@@ -5,6 +5,7 @@ import { app } from '../../api';
 
 import '@styles/product.css';
 import { slugify } from '@/utils/utils';
+import { Image } from 'astro:assets';
 
 const pageTitle: string = `Products | ${SITE.title}`;
 let results = [];
@@ -46,13 +47,17 @@ try {
                 <a href={`/apps/${slugify(app.title, app.id)}`} class="w-full">
                   <div class="relative overflow-hidden rounded-md shadow-lg transition-shadow hover:shadow-xl dark:shadow-black">
                     <div class="relative">
-                      <img
+                      <Image
+                        width={100}
+                        height={100}
                         src={app.banner}
                         alt={app.title || '-'}
                         class="h-40 w-full rounded-t-md object-cover"
                       />
                       <div class="absolute bottom-[-38px] left-[25px] w-[80px]">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src={app.icon}
                           alt="App Icon"
                           class="rounded-full"

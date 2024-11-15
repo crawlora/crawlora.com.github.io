@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import phoneFrameImg from '../../../pages/images/testi/phone-fream.png';
 import screenshot1 from '../../../pages/images/testi/ss/s-1.png';
 import screenshot2 from '../../../pages/images/testi/ss/s-2.png';
@@ -25,21 +26,21 @@ import screenshot4 from '../../../pages/images/testi/ss/s-4.png';
       <div class="col-lg-12">
         <div class="swiper-container">
           <div class="frame-phone">
-            <img src={phoneFrameImg.src} alt="Phone Frame" class="img-fluid" />
+            <Image src={phoneFrameImg} alt="Phone Frame" class="img-fluid" />
           </div>
 
           <div class="swiper-wrapper">
             <div class="swiper-slide border-radius">
-              <img src={screenshot1.src} alt="Screenshot 1" class="img-fluid" />
+              <Image src={screenshot1} alt="Screenshot 1" class="img-fluid" />
             </div>
             <div class="swiper-slide border-radius">
-              <img src={screenshot2.src} alt="Screenshot 2" class="img-fluid" />
+              <Image src={screenshot2} alt="Screenshot 2" class="img-fluid" />
             </div>
             <div class="swiper-slide border-radius">
-              <img src={screenshot3.src} alt="Screenshot 3" class="img-fluid" />
+              <Image src={screenshot3} alt="Screenshot 3" class="img-fluid" />
             </div>
             <div class="swiper-slide border-radius">
-              <img src={screenshot4.src} alt="Screenshot 4" class="img-fluid" />
+              <Image src={screenshot4} alt="Screenshot 4" class="img-fluid" />
             </div>
           </div>
 

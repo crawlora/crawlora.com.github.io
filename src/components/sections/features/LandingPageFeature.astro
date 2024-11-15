@@ -1,12 +1,9 @@
 ---
 // Import the JSON data
+import { Image } from 'astro:assets';
 import Image1 from '../../../pages/images/features/phone.png';
 import Image2 from '../../../pages/images/features/phone2.png';
 import DarkImage from '../../../pages/images/features/phoneDark.png';
-
-const phoneImage = { src: Image1.src };
-const phoneImage2 = { src: Image2.src };
-const phoneImageDark = { src: DarkImage.src };
 ---
 
 <div class="section features" id="features">
@@ -111,8 +108,8 @@ const phoneImageDark = { src: DarkImage.src };
                 </div>
               </div>
               <div class="col-lg-4 mb-4">
-                <img
-                  src={phoneImage.src}
+                <Image
+                  src={Image1}
                   alt="Phone Illustration"
                   class="img-fluid"
                 />
@@ -167,14 +164,14 @@ const phoneImageDark = { src: DarkImage.src };
           >
             <div class="row align-items-center">
               <div class="col-lg-6 mb-4">
-                <img
-                  src={phoneImage2.src}
+                <Image
+                  src={Image2}
                   alt="Smart Phone Illustration"
                   class="img-fluid hidden"
                   id="light-image"
                 />
-                <img
-                  src={phoneImageDark.src}
+                <Image
+                  src={DarkImage}
                   alt="dark image"
                   class="img-fluid hidden"
                   id="dark-image"
