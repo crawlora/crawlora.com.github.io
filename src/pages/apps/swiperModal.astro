@@ -1,12 +1,15 @@
 ---
-import { Image } from 'astro:assets';
+import { slugify } from '@/utils/utils';
+import Image from '../../cutomIntigration/image/code/Image.astro';
 
 // SwiperModal.astro
 export interface Props {
   screenshots: string[];
+  title: string;
+  id: string;
 }
 
-const { screenshots } = Astro.props;
+const { screenshots, title, id } = Astro.props;
 ---
 
 <div id="swiper-modal" class="modal-backdrop" style="display: none;">
@@ -19,9 +22,8 @@ const { screenshots } = Astro.props;
             screenshots.map((screenshot, index) => (
               <div class="swiper-slide">
                 <Image
-                  width={100}
-                  height={100}
-                  src={screenshot}
+                  url={screenshot}
+                  name={slugify(title + 'small-screenshot-icon', id + '.png')}
                   alt={`Screenshot ${index + 1}`}
                 />
               </div>
