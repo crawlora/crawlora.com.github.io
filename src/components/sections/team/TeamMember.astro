@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const { name, role, imgSrc, altText, link } = Astro.props;
 ---
 
@@ -7,7 +9,7 @@ const { name, role, imgSrc, altText, link } = Astro.props;
     <div class="flex flex-row-reverse justify-around">
       <div class="col-lg-9 col-10">
         <div class="team-image text-end">
-          <img src={imgSrc} alt={altText} class="img-fluid" />
+          <Image src={imgSrc} alt={altText} class="img-fluid" />
         </div>
         <div class="team-icon">
           <div class="d-flex mt-2 justify-center">

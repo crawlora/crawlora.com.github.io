@@ -6,6 +6,7 @@ import userImage1 from '../../../pages/images/user/img-1.jpg';
 import userImage2 from '../../../pages/images/user/img-2.jpg';
 import userImage3 from '../../../pages/images/user/img-3.jpg';
 import homeBg from '../../../pages/images/home/home5-bg.png';
+import { Image } from 'astro:assets';
 
 const users = [
   { imgSrc: userImage1, alt: 'User 1' },
@@ -52,8 +53,8 @@ const users = [
               {
                 users.map((user) => (
                   <div class="avatar-sm top-child">
-                    <img
-                      src={user.imgSrc.src}
+                    <Image
+                      src={user.imgSrc}
                       alt={user.alt}
                       class="img-fluid avatar-sm"
                     />
@@ -74,7 +75,7 @@ const users = [
         </div>
       </div>
       <div class="col-lg-6">
-        <img src={homeImage.src} alt="Home Image" class="img-fluid" />
+        <Image src={homeImage} alt="Home Image" class="img-fluid" />
       </div>
     </div>
   </div>

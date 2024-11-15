@@ -7,6 +7,7 @@ import Md from '../../components/ui/md.astro';
 import { app } from '../../api';
 import '@styles/product.css';
 import { slugify } from '@/utils/utils';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const { data: resData } = await app.get();
@@ -38,7 +39,9 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
     <div class="mx-auto max-w-5xl">
       <!-- Product Info Section -->
       <div class="mb-8 flex flex-col items-center sm:flex-row">
-        <img
+        <Image
+          width={100}
+          height={100}
           src={product.icon}
           alt="App Icon"
           class="h-28 w-28 rounded-lg ring-2 ring-gray-300 dark:text-white"
@@ -69,7 +72,9 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
             product.screenshots &&
               product.screenshots.map((screenshot: any, index: number) => (
                 <div class="screenshot w-full" data-index={index}>
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src={screenshot}
                     alt={`Screenshot ${index + 1}`}
                     class="h-32 w-full rounded-lg object-cover"
