@@ -4,6 +4,7 @@ import { SITE } from '@data/constants';
 import { app } from '../../api';
 
 import '@styles/product.css';
+import { slugify } from '@/utils/utils';
 
 const pageTitle: string = `Products | ${SITE.title}`;
 let results = [];
@@ -42,7 +43,7 @@ try {
           return (
             <Fragment>
               <div class="w-full cursor-pointer">
-                <a href={`/apps/${app.id}`} class="w-full">
+                <a href={`/apps/${slugify(app.title, app.id)}`} class="w-full">
                   <div class="relative overflow-hidden rounded-md shadow-lg transition-shadow hover:shadow-xl dark:shadow-black">
                     <div class="relative">
                       <img
@@ -77,7 +78,10 @@ try {
                         <a href="/download" class="btn tryout-btn min-w-[90px]">
                           Try Out
                         </a>
-                        <a href={`/apps/${app.id}`} class="btn info-btn">
+                        <a
+                          href={`/apps/${slugify(app.title, app.id)}`}
+                          class="btn info-btn"
+                        >
                           Info
                         </a>
                       </div>

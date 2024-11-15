@@ -6,17 +6,16 @@ import SwiperModal from './swiperModal.astro';
 import Md from '../../components/ui/md.astro';
 import { app } from '../../api';
 import '@styles/product.css';
-
-// src/layouts/BaseLayout.astro
+import { slugify } from '@/utils/utils';
 
 export async function getStaticPaths() {
   const { data: resData } = await app.get();
 
   const data = await Promise.all(
-    resData.data.map(async (d: { id: any }) => {
+    resData.data.map(async (d: { title: string; id: any }) => {
       const { data: pInfo } = await app.getById(d.id);
       return {
-        params: { slug: d.id },
+        params: { slug: slugify(d.title, d.id) },
         props: {
           product: {
             ...pInfo,

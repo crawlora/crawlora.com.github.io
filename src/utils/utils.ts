@@ -12,4 +12,11 @@ function capitalize(str:string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-  export { formatDate, capitalize };
+
+const slugify = (title: string, id: string) => {
+   title = title.replaceAll(' ', '-').toLowerCase().toWellFormed().trim()
+
+  return `${title}-${id}`
+}
+
+export { formatDate, capitalize, slugify };
