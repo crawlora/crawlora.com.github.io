@@ -14,7 +14,7 @@ function capitalize(str:string): string {
 
 
 const slugify = (title: string, id: string) => {
-   title = title.replaceAll(' ', '-')
+   title = title.replaceAll(' ', '-').toLowerCase().toWellFormed().trim()
 
   return `${title}-${id}`
 }
