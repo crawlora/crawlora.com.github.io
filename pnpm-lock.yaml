@@ -59,9 +59,6 @@ importers:
       astro-compressor:
         specifier: ^0.4.1
         version: 0.4.1
-      astro-preload:
-        specifier: ^1.1.2
-        version: 1.1.2
       axios:
         specifier: ^1.7.7
         version: 1.7.7(debug@4.3.7)
@@ -1648,9 +1645,6 @@ packages:
     resolution: {integrity: sha512-1U4KrvFuodaCV3z4I1bIR16SdhQlPkolGsYTtiANxPZUVv/KitGSCTjzksrkPonn1XuwVqvnwmUUVzTLWngnBA==}
     peerDependencies:
       astro: ^4.0.0-beta || ^3.3.0
-
-  astro-preload@1.1.2:
-    resolution: {integrity: sha512-96UHdATRp/K8iVysylYu0V5QMD3FXBqqj2+cUwHOmc0/+lstY5Xnb+A5UgmecbrfHpwMws5SQaOYZ1c63cQu/A==}
 
   astro-vtbot@1.10.4:
     resolution: {integrity: sha512-F/0D5i8PTytq7rS+ngtNRPMOC4AY7K7e5hZRjyjmhcEK1TYqDegeWkbUU6uSolChH+DSwyesLlIR8o7hV2PdTQ==}
@@ -5755,7 +5749,7 @@ snapshots:
     dependencies:
       serialize-javascript: 6.0.2
       smob: 1.5.0
-      terser: 5.33.0
+      terser: 5.36.0
     optionalDependencies:
       rollup: 2.79.1
 
@@ -6197,8 +6191,6 @@ snapshots:
     dependencies:
       astro: 4.16.10(@types/node@22.5.0)(lightningcss@1.27.0)(rollup@2.79.1)(terser@5.36.0)(typescript@5.6.2)
       rehype-expressive-code: 0.35.6
-
-  astro-preload@1.1.2: {}
 
   astro-vtbot@1.10.4:
     dependencies:
