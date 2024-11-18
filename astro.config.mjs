@@ -11,6 +11,8 @@ import preload from "./src/cutomIntigration/image";
 
 import compress from "astro-compress";
 
+import lit from "@astrojs/lit";
+
 // https://astro.build/config
 export default defineConfig({
   plugins: [
@@ -135,7 +137,7 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), preload(), compress()],
+  }), preload(), compress(), lit()],
   output: "static",
   experimental: {
     clientPrerender: true,

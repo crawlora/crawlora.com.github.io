@@ -1,7 +1,9 @@
 ---
 // Modal.astro
 const { isOpen } = Astro.props;
-import downloadLinks from '@data/DownloadLink.json';
+import {getDownloadLinks} from '@api/automation';
+
+const downloadLinks = await getDownloadLinks()
 ---
 
 <div
