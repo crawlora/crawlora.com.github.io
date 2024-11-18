@@ -1,6 +1,9 @@
 ---
 import SwiperImageSlide from '@/components/SwiperImageSlide.astro';
 import Modal from '@/components/ui/Modal.astro';
+import {getDownloadLinks} from '@api/automation';
+
+const downloadLinks = await getDownloadLinks()
 
 // State to track modal open/close
 let isModalOpen = false;
@@ -28,7 +31,10 @@ let isModalOpen = false;
             Download Desktop app
           </button>
           <span class="mt-1 block text-[12px] text-sm text-gray-500"
-            >Windows · MacOS (Apple Silicon) · Linux</span
+            >
+            {downloadLinks.links.map(v => v.name).join(' · ')}
+            
+            </span
           >
         </div>
       </div>
