@@ -5,23 +5,40 @@ import slide2 from '../pages/images/testi/ss/s-2.png';
 import slide3 from '../pages/images/testi/ss/s-3.png';
 ---
 
-<section class="section download-wrapper app-slider bg-light w-80" id="app">
+<section
+  class="section download-wrapper app-slider bg-light w-1/3 rounded-lg"
+  id="app"
+>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="swiper-container overflow-hidden">
           <div class="swiper-wrapper">
             <div class="swiper-slide border-radius">
-              <Image src={slide1} alt="Screenshot 1" class="img-fluid" />
+              <Image
+                src={slide1}
+                alt="Screenshot 1"
+                class="img-fluid rounded-lg"
+              />
             </div>
             <div class="swiper-slide border-radius">
-              <Image src={slide2} alt="Screenshot 2" class="img-fluid" />
+              <Image
+                src={slide2}
+                alt="Screenshot 2"
+                class="img-fluid rounded-lg"
+              />
             </div>
             <div class="swiper-slide border-radius">
-              <Image src={slide3} alt="Screenshot 3" class="img-fluid" />
+              <Image
+                src={slide3}
+                alt="Screenshot 3"
+                class="img-fluid rounded-lg"
+              />
             </div>
           </div>
-          <div class="swiper-pagination"></div>
+          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </div>
@@ -29,8 +46,6 @@ import slide3 from '../pages/images/testi/ss/s-3.png';
 </section>
 <style>
   .download-wrapper {
-    width: 246px;
-    height: 178px;
     position: relative;
   }
 </style>
@@ -39,15 +54,11 @@ import slide3 from '../pages/images/testi/ss/s-3.png';
     new Swiper('.swiper-container', {
       slidesPerView: 1,
       spaceBetween: 10,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
-      centeredSlides: true,
-      speed: 2000,
-      autoplay: {
-        delay: 2000,
-      },
+      pagination: { el: '.swiper-pagination', clickable: true },
     });
   });
 </script>

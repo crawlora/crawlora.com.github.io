@@ -3,22 +3,32 @@
   "links": [
     {
       "platform": "MacOs ( Apple Sillicon )",
+      "icon": "macOsAppleSilicon",
+      "description": "Optimized for Apple Silicon devices, providing the best performance.",
       "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0-arm64-mac.pkg"
     },
     {
       "platform": "MacOs",
+      "icon": "macOs",
+      "description": " Compatible with Mac devices running on Intel processors.",
       "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0-mac.pkg"
     },
     {
       "platform": "MacOs Universal",
+      "icon": "macOsUniversal",
+      "description": "A universal build supporting both Apple Silicon and Intel.",
       "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0-universal-mac.pkg"
     },
     {
       "platform": "Windows",
+      "icon": "windows",
+      "description": "Compatible with Windows 10 and above for seamless performance.",
       "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0.msi"
     },
     {
       "platform": "Linux",
+      "icon": "linux",
+      "description": "Available as a .deb package for Linux-based systems.",
       "url": "https://crawlora-desktop-release.s3.amazonaws.com/crawlora-1.1.0.deb"
     }
   ]

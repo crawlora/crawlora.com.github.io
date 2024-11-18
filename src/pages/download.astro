@@ -1,30 +1,95 @@
 ---
-// Import the necessary components
-import MainLayout from "@/layouts/MainLayout.astro";
-import DownloadPage from "@components/sections/download/DownloadPage.astro";
+import BrandLogo from '@/components/BrandLogo.astro';
+import SwiperImageSlide from '@/components/SwiperImageSlide.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import DownloadPage from '@components/sections/download/DownloadPage.astro';
+import downloadLinks from '@data/DownloadLink.json';
 const pageTitle: string = `Download`;
 ---
 
-<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
   title={pageTitle}
   structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://crawlora.com/contact",
-    "url": "https://crawlora.com/contact",
-    "name": "Download | Crawlora",
-    "description":
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://crawlora.com/contact',
+    url: 'https://crawlora.com/contact',
+    name: 'Contact Us | Crawlora',
+    description:
       "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://crawlora.com",
-      "name": "Crawlora",
-      "description":
-        "Crawlora is a web crawling platform that automates data extraction, empowering businesses to gather valuable insights efficiently and at scale.",
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://crawlora.com',
+      name: 'Crawlora',
+      description:
+        'Crawlora is a web crawling platform that automates data extraction, empowering businesses to gather valuable insights efficiently and at scale.',
     },
-    "inLanguage": "en-US"
+    inLanguage: 'en-US',
   }}
 >
-  <DownloadPage />
+  <div
+    class="mx-auto flex min-h-[calc(100vh-427px)] max-w-[85rem] flex-col items-center justify-center px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <BrandLogo class="h-auto w-64" />
+    <div class="container mx-auto p-6">
+      <!-- Header Section -->
+      <div class="mb-10 text-center">
+        <h1 class="text-5xl font-bold text-gray-900 dark:text-white">
+          Download App
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-white">
+          Crawlora is a data aggregation tool for marketers, automating data
+          crawling and real-time analysis from platforms.
+        </p>
+      </div>
+      <div class="flex flex-col items-center mt-8 text-center">
+        <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
+          Recommended Downloads
+        </h2>
+      
+        <div id="download-message" class="mb-6 text-lg text-gray-700 dark:text-white">
+          <!-- The message will be dynamically inserted here -->
+        </div>
+      
+        <div id="download-button" class="flex justify-center gap-4">
+          <!-- The download button will be dynamically inserted here -->
+        </div>
+      </div>
+      <!-- Download Cards Section -->
+      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          downloadLinks.links.map((link) => (
+            <div
+              class="rounded-lg bg-white p-6 text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              <!-- Platform Icon -->
+              <div class="mb-4 w-14 h-14 bg-[#f2f2f2] mx-auto rounded-xl flex justify-center items-center">
+                <Icon class="h-12 w-12 mx-auto text-gray-700" name={link.icon} />
+              </div>
+              
+              <!-- Platform Name -->
+              <h3 class="text-xl font-semibold text-gray-900">
+                {link.platform}
+              </h3>
+              
+              <!-- Description -->
+              <p class="mt-2 text-sm text-gray-600">{link.description}</p>
+              
+              <!-- Download Button -->
+              <a
+                href={link.url}
+                class="mt-4 inline-block rounded-md bg-orange-500 px-6 py-2 text-sm font-semibold text-white transition duration-200 hover:bg-orange-600"
+           
+              >
+                <span class="flex items-center justify-center">
+                  Download
+                </span>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </MainLayout>
