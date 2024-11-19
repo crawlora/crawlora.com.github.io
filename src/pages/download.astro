@@ -5,6 +5,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import {getDownloadLinks} from '@api/automation';
 const pageTitle: string = `Download`;
 const data = await getDownloadLinks()
+
 ---
 
 <MainLayout
@@ -30,7 +31,6 @@ const data = await getDownloadLinks()
   <div
     class="mx-auto flex min-h-[calc(100vh-427px)] max-w-[85rem] flex-col items-center justify-center px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <BrandLogo class="h-auto w-64" />
     <div class="container mx-auto p-6">
       <!-- Header Section -->
       <div class="mb-10 text-center">
@@ -46,12 +46,8 @@ const data = await getDownloadLinks()
         <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
           Recommended Downloads
         </h2>
-
-      
         <div id="download-button" class="flex justify-center gap-4">
-          <!-- <a href="${url}" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
-            adshdskjadkdksdk
-          </a> -->
+          <Icon class="h-4 w-4 ml-2 text-white" name="download" />
         </div>
       </div>
       <!-- Download Cards Section -->
@@ -59,30 +55,28 @@ const data = await getDownloadLinks()
         {
           data.links.map((link) => (
             <div
-              class="rounded-lg bg-white p-6 text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+              class="rounded-lg bg-white dark:bg-neutral-900 p-6 text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
             >
               <!-- Platform Icon -->
-              <div class="mb-4 w-14 h-14 bg-[#f2f2f2] mx-auto rounded-xl flex justify-center items-center">
+              <div class="mb-4 w-14 h-14  mx-auto rounded-xl flex justify-center items-center">
                 <Icon class="h-12 w-12 mx-auto text-gray-700" name={link.icon} />
               </div>
               
               <!-- Platform Name -->
-              <h3 class="text-xl font-semibold text-gray-900">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                 {link.name}
               </h3>
               
               <!-- Description -->
-              <p class="mt-2 text-sm text-gray-600">{link.os}</p>
+              <p class="mt-2 text-sm text-gray-600 dark:text-white">{link.os}</p>
               
               <!-- Download Button -->
               <a
                 href={link.url}
-                class="mt-4 inline-block rounded-md bg-orange-500 px-6 py-2 text-sm font-semibold text-white transition duration-200 hover:bg-orange-600"
-           
+                class="mt-4 inline-flex items-center rounded-md bg-orange-500 px-6 py-2 text-sm font-semibold text-white transition duration-200 hover:bg-orange-600"
               >
-                <span class="flex items-center justify-center">
-                  Download
-                </span>
+                <span>Download</span>
+                <Icon class="h-4 w-4 ml-2 text-white" name="download" />
               </a>
             </div>
           ))
@@ -97,44 +91,53 @@ const data = await getDownloadLinks()
 const element = document.getElementById("linkData").getAttribute('data-downloadLinkData')
 const data  = JSON.parse(element).links
 
-function getOS() {
-  // Ensure that we're in a client-side environment
-  if (typeof window === "undefined" || !window.navigator.userAgentData) {
-    return "unknown"; // Fallback if navigator is not available
+function getOSAndArch() {
+  if (typeof window === "undefined" || typeof navigator === "undefined") {
+    return { os: "unknown", arch: "unknown" };
   }
 
-  const userAgent = window.navigator.userAgentData.platform.toLowerCase();
+  const platform = navigator.platform.toLowerCase();
+  const userAgent = navigator.userAgent.toLowerCase();
 
-  switch (true) {
-    case userAgent.includes("win"):
-      return "windows";
-    case userAgent.includes("mac"):
-      return "mac";
-    case userAgent.includes("linux"):
-      return "linux";
-    case userAgent.includes("android"):
-      return "android";
-    case userAgent.includes("iphone") || userAgent.includes("ipad"):
-      return "ios";
-    default:
-      return "linux"; 
+  let os = "unknown";
+  let arch = "unknown";
+
+  // Detect OS
+  if (platform.includes("win")) {
+    os = "windows";
+  } else if (platform.includes("mac") || userAgent.includes("mac")) {
+    os = "apple";
+    arch = "universal"; // Fallback for universal binaries
+   
+  } else if (platform.includes("linux")) {
+    os = "linux";
+    arch = "amd";
+   
+  } else if (platform.includes("android")) {
+    os = "android";
+    arch = "arm"; // Most Android devices are ARM-based
+  } else if (platform.includes("iphone") || platform.includes("ipad")) {
+    os = "ios";
+    arch = "arm"; // iOS devices are ARM-based
   }
+
+  return { os, arch };
 }
-
   // Function to display the download message and button
   function displayDownloadOption() {
-    const osName = getOS();
-    const { name, url, os } = data.find((item) => item.os.includes(osName));
-
-    // document.getElementById("download-message").innerHTML = `<p class="text-xl text-gray-900 dark:text-white">${name}</p>`;
+    const { os, arch } = getOSAndArch();
+    const match = data.find(
+    (release) => release.os === os && release.arch === arch
+  );
+  if (match) {
     document.getElementById("download-button").innerHTML = `
-      <a href="${url}" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
-        Download For ${os}
+      <a href="${match.url}" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
+        Download For ${match.name}
       </a>
     `;
+    
   }
-
-  // Call the function to display the download option
+  }
   displayDownloadOption();
 </script>
 
