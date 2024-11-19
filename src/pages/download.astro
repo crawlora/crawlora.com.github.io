@@ -1,11 +1,10 @@
 ---
 import BrandLogo from '@/components/BrandLogo.astro';
-import SwiperImageSlide from '@/components/SwiperImageSlide.astro';
 import Icon from '@/components/ui/icons/Icon.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
-import DownloadPage from '@components/sections/download/DownloadPage.astro';
-import downloadLinks from '@data/DownloadLink.json';
+import {getDownloadLinks} from '@api/automation';
 const pageTitle: string = `Download`;
+const data = await getDownloadLinks()
 ---
 
 <MainLayout
@@ -47,19 +46,18 @@ const pageTitle: string = `Download`;
         <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
           Recommended Downloads
         </h2>
-      
-        <div id="download-message" class="mb-6 text-lg text-gray-700 dark:text-white">
-          <!-- The message will be dynamically inserted here -->
-        </div>
+
       
         <div id="download-button" class="flex justify-center gap-4">
-          <!-- The download button will be dynamically inserted here -->
+          <!-- <a href="${url}" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
+            adshdskjadkdksdk
+          </a> -->
         </div>
       </div>
       <!-- Download Cards Section -->
-      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="linkData" data-downloadLinkData={JSON.stringify(data)}>
         {
-          downloadLinks.links.map((link) => (
+          data.links.map((link) => (
             <div
               class="rounded-lg bg-white p-6 text-center shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
             >
@@ -70,11 +68,11 @@ const pageTitle: string = `Download`;
               
               <!-- Platform Name -->
               <h3 class="text-xl font-semibold text-gray-900">
-                {link.platform}
+                {link.name}
               </h3>
               
               <!-- Description -->
-              <p class="mt-2 text-sm text-gray-600">{link.description}</p>
+              <p class="mt-2 text-sm text-gray-600">{link.os}</p>
               
               <!-- Download Button -->
               <a
@@ -93,3 +91,52 @@ const pageTitle: string = `Download`;
     </div>
   </div>
 </MainLayout>
+
+
+<script is:inline>
+const element = document.getElementById("linkData").getAttribute('data-downloadLinkData')
+const data  = JSON.parse(element).links
+
+function getOS() {
+  // Ensure that we're in a client-side environment
+  if (typeof window === "undefined" || !window.navigator.userAgentData) {
+    return "unknown"; // Fallback if navigator is not available
+  }
+
+  const userAgent = window.navigator.userAgentData.platform.toLowerCase();
+
+  switch (true) {
+    case userAgent.includes("win"):
+      return "windows";
+    case userAgent.includes("mac"):
+      return "mac";
+    case userAgent.includes("linux"):
+      return "linux";
+    case userAgent.includes("android"):
+      return "android";
+    case userAgent.includes("iphone") || userAgent.includes("ipad"):
+      return "ios";
+    default:
+      return "linux"; 
+  }
+}
+
+  // Function to display the download message and button
+  function displayDownloadOption() {
+    const osName = getOS();
+    const { name, url, os } = data.find((item) => item.os.includes(osName));
+
+    // document.getElementById("download-message").innerHTML = `<p class="text-xl text-gray-900 dark:text-white">${name}</p>`;
+    document.getElementById("download-button").innerHTML = `
+      <a href="${url}" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
+        Download For ${os}
+      </a>
+    `;
+  }
+
+  // Call the function to display the download option
+  displayDownloadOption();
+</script>
+
+
+
