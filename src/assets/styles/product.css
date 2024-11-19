@@ -69,7 +69,6 @@
 .markdown {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    padding: 1em;
     border-radius: 5px;
   }
   
@@ -116,6 +115,11 @@
     text-decoration: none;
     max-width: 100%;
     display: inline-block;
+  }
+
+  .markdown p > a{
+    word-wrap: break-word; /* Allows long words to break onto the next line */
+    word-break: break-all;
   }
   
   .markdown a:hover {

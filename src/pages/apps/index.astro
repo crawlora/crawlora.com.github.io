@@ -37,7 +37,9 @@ try {
     inLanguage: 'en-US',
   }}
 >
-  <div class="my-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div
+    class="my-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
     {
       results.data.length > 0 ? (
         results.data.map((app: any) => {
@@ -45,7 +47,7 @@ try {
             <Fragment>
               <div class="w-full cursor-pointer">
                 <a href={`/apps/${slugify(app.title, app.id)}`} class="w-full">
-                  <div class="relative overflow-hidden rounded-md shadow-lg transition-shadow hover:shadow-xl dark:shadow-black">
+                  <div class="hover:shadow-1xl relative overflow-hidden rounded-lg border shadow-xl dark:border-[#2c2c2c]">
                     <div class="relative">
                       <Image
                         name={slugify(

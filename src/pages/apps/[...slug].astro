@@ -35,28 +35,43 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
 ---
 
 <MainLayout title={pageTitle}>
-  <div class="mb-20 mt-20 rounded-lg p-8">
+  <div class="mb-20 mt-20 rounded-lg sm:p-6 md:p-4">
     <div class="mx-auto max-w-5xl">
       <!-- Product Info Section -->
-      <div class="mb-8 flex flex-col items-center sm:flex-row">
+      <div class="mb-8 flex flex-col items-center sm:flex-row sm:items-center">
+        <!-- Image -->
         <Image
           url={product.icon}
           name={slugify(product.title + 'info-app-icon', product.id + '.png')}
           alt="App Icon"
           class="h-28 w-28 rounded-lg ring-2 ring-gray-300 dark:text-white"
         />
-        <div class="mt-4 flex w-full justify-between sm:ml-8 sm:mt-0">
-          <div>
-            <h1 class="text-4xl font-bold dark:text-white">
-              {product.title}
-            </h1>
-            <h2 class="text-gray-700 dark:text-gray-300">
-              By {product.author}
-            </h2>
-          </div>
-          <div class="mt-4 flex h-[40px] space-x-3 sm:mt-0">
-            <a href="/download" class="btn install-btn"> Install </a>
-            <a href="/download" class="btn tryout-btn"> Try Out </a>
+        <!-- Text and Buttons Section -->
+        <div class="mt-4 w-full sm:ml-8 sm:mt-0">
+          <!-- Title and Author -->
+          <div class="flex flex-col sm:flex-row sm:justify-between">
+            <div>
+              <h1 class="text-4xl font-bold dark:text-white">
+                {product.title}
+              </h1>
+              <h2 class="text-gray-700 dark:text-gray-300">
+                By {product.author}
+              </h2>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-4 flex space-x-3 sm:mt-0">
+              <a
+                href="/download"
+                class="btn install-btn flex h-12 items-center justify-center"
+                >Install</a
+              >
+              <a
+                href="/download"
+                class="btn tryout-btn flex h-12 items-center justify-center"
+                >Try Out</a
+              >
+            </div>
           </div>
         </div>
       </div>
