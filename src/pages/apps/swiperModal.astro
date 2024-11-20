@@ -15,7 +15,7 @@ const { screenshots, title, id } = Astro.props;
 <div id="swiper-modal" class="modal-backdrop" style="display: none;">
   <button id="close-modal" class="close-btn">&times;</button>
   <div class="modal-content">
-    <div class="swiper">
+    <div class="swiper-modal">
       <div class="swiper-wrapper">
         {
           screenshots &&
@@ -95,7 +95,7 @@ const { screenshots, title, id } = Astro.props;
     document.body.style.position = 'fixed'; // Fix the body in place to prevent scroll
     document.body.style.top = `${window.scrollY}px`;
     if (!swiper) {
-      swiper = new Swiper('.swiper', {
+      swiper = new Swiper('.swiper-modal', {
         initialSlide: index,
         spaceBetween: 10,
         slidesPerView: 1,

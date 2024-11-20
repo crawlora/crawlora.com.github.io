@@ -38,29 +38,53 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
   <div class="mb-20 mt-20 rounded-lg sm:p-6 md:p-4">
     <div class="mx-auto max-w-5xl">
       <!-- Product Info Section -->
-      <div class="mb-8 flex flex-col items-center sm:flex-row sm:items-center">
-        <!-- Image -->
-        <Image
-          url={product.icon}
-          name={slugify(product.title + 'info-app-icon', product.id + '.png')}
-          alt="App Icon"
-          class="h-28 w-28 rounded-lg ring-2 ring-gray-300 dark:text-white"
-        />
+      <div class="product-section mb-8 flex items-center">
+        <!-- Icon Section (with responsive banner for small screens) -->
+        <div class="icon-container">
+          <!-- Banner (visible only on small screens) -->
+          <div class="banner">
+            <Image
+              name={slugify(
+                product.title + 'small-banner',
+                product.id + '.png'
+              )}
+              url={product.banner}
+              alt="Banner"
+              class="banner-image"
+            />
+          </div>
+
+          <!-- Icon -->
+          <div class="icon">
+            <Image
+              url={product.icon}
+              name={slugify(
+                product.title + 'info-app-icon',
+                product.id + '.png'
+              )}
+              alt="App Icon"
+              class="icon-image"
+            />
+          </div>
+        </div>
+
         <!-- Text and Buttons Section -->
-        <div class="mt-4 w-full sm:ml-8 sm:mt-0">
+        <div
+          class="content-container mt-4 w-full sm:ml-8 sm:mt-0 sm:w-[calc(100%-144px)]"
+        >
           <!-- Title and Author -->
-          <div class="flex flex-col sm:flex-row sm:justify-between">
+          <div class="header flex justify-between">
             <div>
-              <h1 class="text-4xl font-bold dark:text-white">
+              <h1 class="title text-4xl font-bold dark:text-white">
                 {product.title}
               </h1>
-              <h2 class="text-gray-700 dark:text-gray-300">
+              <h2 class="author text-gray-700 dark:text-gray-300">
                 By {product.author}
               </h2>
             </div>
 
             <!-- Action Buttons -->
-            <div class="mt-4 flex space-x-3 sm:mt-0">
+            <div class="actions mt-4 flex space-x-3 sm:mt-0">
               <a
                 href="/download"
                 class="btn install-btn flex h-12 items-center justify-center"
@@ -68,7 +92,7 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
               >
               <a
                 href="/download"
-                class="btn tryout-btn flex h-12 items-center justify-center"
+                class="btn tryout-btn flex h-12 min-w-[88px] items-center justify-center"
                 >Try Out</a
               >
             </div>
@@ -81,23 +105,24 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
         <h3 class="text-2xl font-semibold text-neutral-600 dark:text-white">
           Screenshots
         </h3>
-        <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {
-            product.screenshots &&
-              product.screenshots.map((screenshot: any, index: number) => (
-                <div class="screenshot w-full" data-index={index}>
-                  <Image
-                    url={screenshot}
-                    name={slugify(
-                      product.title + 'small-screenshot-icon',
-                      product.id + '.png'
-                    )}
-                    alt={`Screenshot ${index + 1}`}
-                    class="h-32 w-full rounded-lg object-cover"
-                  />
-                </div>
-              ))
-          }
+        <div
+          class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden mb-8 mt-4"
+        >
+          <div class="swiper-wrapper">
+            {
+              product.screenshots &&
+                product.screenshots.map((screenshot: any, index: any) => (
+                  <div class="screenshot swiper-slide" data-index={index}>
+                    <img
+                      src={screenshot}
+                      alt={`Screenshot ${index + 1}`}
+                      class="h-32 w-full rounded-lg object-cover"
+                    />
+                  </div>
+                ))
+            }
+          </div>
+          <!-- Pagination and Navigation controls -->
         </div>
       </div>
 
@@ -139,3 +164,131 @@ const pageTitle: string = `${product.title} | ${SITE.title}`;
     screenshots={product.screenshots}
   />
 </MainLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.swiper', {
+      initialSlide: 0,
+      spaceBetween: 30,
+      slidesPerView: 4, // Default 5 images per view
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        640: {
+          slidesPerView: 2, // For mobile: 1 image at a time
+        },
+        768: {
+          slidesPerView: 3, // For small tablets: 2 images at a time
+        },
+        1024: {
+          slidesPerView: 4, // For larger tablets: 5 images at a time
+        },
+        1280: {
+          slidesPerView: 4, // For desktop: 6 images at a time
+        },
+      },
+    });
+  });
+</script>
+
+<style>
+  /* Container for the product section */
+  .swiper-wrapper {
+    width: 200px;
+  }
+  .scroll-hide {
+    scroll-snap-type: x mandatory; /* Enables snapping to slides */
+    scrollbar-width: none;
+  }
+  .product-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .product-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .icon-container {
+      width: 100% !important;
+      margin-bottom: 30px;
+    }
+    .header {
+      flex-direction: column;
+    }
+  }
+
+  /* Icon Container */
+  .icon-container {
+    position: relative;
+    width: fit-content;
+  }
+
+  /* Banner Styling (only visible on small screens) */
+  .banner {
+    display: none; /* Hidden by default */
+    height: 160px; /* Matches h-40 */
+    width: 100%;
+    border-radius: 8px; /* Matches rounded-lg */
+    background-color: #e5e7eb; /* Matches bg-gray-200 */
+  }
+
+  .banner-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .banner {
+      display: block; /* Visible on screens 768px or smaller */
+    }
+  }
+
+  /* Icon Styling */
+  .icon {
+    position: absolute;
+    bottom: -32px;
+    left: 40px;
+    z-index: 10;
+    height: 74px; /* Matches sm:h-16 */
+    width: 74px; /* Matches sm:w-16 */
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .icon-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 769px) {
+    .icon {
+      position: static;
+      height: 112px; /* Matches md:h-28 */
+      width: 112px; /* Matches md:w-28 */
+      border-radius: 8px; /* Matches md:rounded-lg */
+      margin: 0 auto;
+    }
+
+    .icon-image {
+      border-radius: 8px; /* Matches md:rounded-lg */
+    }
+  }
+
+  /* Content Container */
+
+  @media (min-width: 640px) {
+    .content-container {
+      margin-left: 32px;
+      margin-top: 0;
+      width: calc(100% - 144px);
+    }
+  }
+</style>
