@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Early Access to Premium Features",
+        "description": "Get a head start with exclusive beta access to all premium tools and features.",
+        "features": [
+            "Priority customer support",
+            "Access to advanced analytics",
+            "Feature request prioritization"
+        ],
+        "cta": {
+            "link": "/beta-signup",
+            "text": "Join the Beta Now"
+        },
+        "spotsRemaining": "15"
+    }
+]

@@ -1,34 +1,34 @@
 ---
-import '@styles/landing-page.css';
+import "@styles/landing-page.css";
 
-import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
+import LandingPageLayout from "@/layouts/LandingPageLayout.astro";
 
 // Home section
-import LandingHero from '@/components/sections/landing/LandingHero.astro';
+import LandingHero from "@/components/sections/landing/LandingHero.astro";
 
 //services
-import LandingPageServices from '@/components/sections/services/LandingPageServices.astro';
+import LandingPageServices from "@/components/sections/services/LandingPageServices.astro";
 
 //features
-import LandingPageFeature from '@/components/sections/features/LandingPageFeature.astro';
+import LandingPageFeature from "@/components/sections/features/LandingPageFeature.astro";
 
 //price
-import LandingPagePrice from '@/components/sections/pricing/LandingPagePrice.astro';
+import LandingPagePrice from "@/components/sections/pricing/LandingPagePrice.astro";
 
 //slider
-import LandingPageScreenShot from '@/components/sections/screenshot/LandingPageScreenShot.astro';
+import LandingPageScreenShot from "@/components/sections/screenshot/LandingPageScreenShot.astro";
 
 //team
-import LandingPageTeamsection from '@/components/sections/team/LandingPageTeamsection.astro';
+import LandingPageTeamsection from "@/components/sections/team/LandingPageTeamsection.astro";
 
 //contact
-import LandingPageContact from '@/components/sections/contact/LandingPageContact.astro';
+import LandingPageContact from "@/components/sections/contact/LandingPageContact.astro";
 ---
 
 <LandingPageLayout>
-  <a id="mode" class="mode-btn rounded-end text-white">
-    <i class="uil uil-brightness mode-dark mx-auto"></i>
-    <i class="uil uil-moon bx-spin mode-light"></i>
+  <a id='mode' class='mode-btn rounded-end text-white'>
+    <i class='uil uil-brightness mode-dark mx-auto'></i>
+    <i class='uil uil-moon bx-spin mode-light'></i>
   </a>
 
   <!-- home section -->
@@ -55,20 +55,20 @@ import LandingPageContact from '@/components/sections/contact/LandingPageContact
 
 <script>
   function windowScroll(): void {
-    const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById("navbar");
     if (navbar) {
       if (
         document.body.scrollTop >= 50 ||
         document.documentElement.scrollTop >= 50
       ) {
-        navbar.classList.add('nav-sticky');
+        navbar.classList.add("nav-sticky");
       } else {
-        navbar.classList.remove('nav-sticky');
+        navbar.classList.remove("nav-sticky");
       }
     }
   }
 
-  window.addEventListener('scroll', (ev: Event) => {
+  window.addEventListener("scroll", (ev: Event) => {
     ev.preventDefault();
     windowScroll();
   });
@@ -76,25 +76,25 @@ import LandingPageContact from '@/components/sections/contact/LandingPageContact
   /********************* light-dark js ************************/
   const bodyElem = document.body;
 
-  if (bodyElem.getAttribute('data-bs-theme') === 'dark') {
-    sessionStorage.setItem('data-mode', 'dark');
-  } else if (bodyElem.getAttribute('data-bs-theme') === 'light') {
-    sessionStorage.setItem('data-mode', 'light');
+  if (bodyElem.getAttribute("data-bs-theme") === "dark") {
+    sessionStorage.setItem("data-mode", "dark");
+  } else if (bodyElem.getAttribute("data-bs-theme") === "light") {
+    sessionStorage.setItem("data-mode", "light");
   }
 
-  const dataMode = sessionStorage.getItem('data-mode');
+  const dataMode = sessionStorage.getItem("data-mode");
   if (dataMode) {
-    bodyElem.setAttribute('data-bs-theme', dataMode);
+    bodyElem.setAttribute("data-bs-theme", dataMode);
     toggleBtn(1);
   } else if (dataMode === null) {
-    bodyElem.setAttribute('data-bs-theme', 'light');
+    bodyElem.setAttribute("data-bs-theme", "light");
   }
 
   function toggleBtn(r: number): void {
-    const dataTheme = bodyElem.getAttribute('data-bs-theme');
+    const dataTheme = bodyElem.getAttribute("data-bs-theme");
     let themeSwitch: boolean;
 
-    if (dataTheme === 'light') {
+    if (dataTheme === "light") {
       themeSwitch = true;
     } else {
       themeSwitch = false;
@@ -105,16 +105,16 @@ import LandingPageContact from '@/components/sections/contact/LandingPageContact
     }
 
     if (themeSwitch) {
-      document.body.setAttribute('data-bs-theme', 'dark');
-      sessionStorage.setItem('data-mode', 'dark');
+      document.body.setAttribute("data-bs-theme", "dark");
+      sessionStorage.setItem("data-mode", "dark");
     } else {
-      document.body.setAttribute('data-bs-theme', 'light');
-      sessionStorage.setItem('data-mode', 'light');
+      document.body.setAttribute("data-bs-theme", "light");
+      sessionStorage.setItem("data-mode", "light");
     }
   }
-  window.addEventListener('click', (event: any) => {
+  window.addEventListener("click", (event: any) => {
     if (event.target) {
-      const isModeChangebutton = ['mode-light', 'mode-dark'].some(
+      const isModeChangebutton = ["mode-light", "mode-dark"].some(
         (item: string) => event?.target?.classList.contains(item)
       );
       if (isModeChangebutton) {
@@ -124,13 +124,13 @@ import LandingPageContact from '@/components/sections/contact/LandingPageContact
   });
 </script>
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.swiper-container', {
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".swiper-container", {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 30,
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
       },
       centeredSlides: true,
@@ -169,24 +169,48 @@ import LandingPageContact from '@/components/sections/contact/LandingPageContact
 </script>
 
 <script is:inline>
-  const button = document.querySelector('.popover-button button');
-  const popover = document.getElementById('tally-popover');
-  const closePopoverButton = document.getElementById('close-popover');
+  const button = document.querySelector(".popover-button button");
+  const popover = document.getElementById("tally-popover");
+  const closePopoverButton = document.getElementById("close-popover");
 
-  button.addEventListener('click', () => {
-    popover.classList.add('show');
+  button.addEventListener("click", () => {
+    popover.classList.add("show");
   });
 
-  closePopoverButton.addEventListener('click', () => {
-    popover.classList.remove('show');
+  closePopoverButton.addEventListener("click", () => {
+    popover.classList.remove("show");
   });
 </script>
+
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.getElementById('navbarToggle');
-    const navbarCollapse = document.getElementById('navbarNav');
-    toggleButton.addEventListener('click', () => {
-      navbarCollapse.classList.toggle('show');
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".popover-button-email button")) {
+      const button = event.target.closest(".popover-button-email button");
+      const betaItem = button.closest(".beta-item");
+      const popover = betaItem.querySelector(".popover");
+
+      if (popover) {
+        popover.classList.add("show");
+      }
+    }
+
+    if (event.target.closest(".close-btn")) {
+      const closeButton = event.target.closest(".close-btn");
+      const popover = closeButton.closest(".popover");
+
+      if (popover) {
+        popover.classList.remove("show");
+      }
+    }
+  });
+</script>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("navbarToggle");
+    const navbarCollapse = document.getElementById("navbarNav");
+    toggleButton.addEventListener("click", () => {
+      navbarCollapse.classList.toggle("show");
     });
   });
 </script>
