@@ -383,59 +383,6 @@ body[data-bs-theme="dark"] .navbar-brand .logo-light {
   background-color: #e04e0e;
 }
 
-.popover {
-  display: none;
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  margin: 0 auto;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: calc(100% - 200px);
-  height: calc(100vh - 200px);
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-  opacity: 0;
-  z-index: 1000;
-  border-top: 4px solid var(--primary-color); /* Accent color */
-}
-
-/* Popover open animation */
-.popover.show {
-  display: block;
-  opacity: 1;
-  /* transform: translateX(10%) translateY(-27px); */
-}
-
-.close-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  transition: background 0.3s;
-}
-
-.close-btn:hover {
-  background-color: #e04e0e;
-}
-
-.popover iframe {
-  display: block;
-  width: 100%;
-  height: 95%;
-  border: none;
-}
 .text-primary {
   color: var(--primary-color) !important;
 }
@@ -2342,6 +2289,54 @@ body[data-bs-theme="dark"] .cta::after {
   z-index: 1;
   position: relative;
   bottom: -100px;
+}
+.overlay-hero {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 10px;
+}
+.popover-hero {
+  padding: 20px;
+  width: 500px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  z-index: 1100;
+  border-top: 4px solid var(--primary-color); /* Accent color */
+}
+.close-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background-color: #e04e0e;
+}
+
+.popover-hero iframe {
+  display: block;
+  border: none;
+  height: 240px;
 }
 @media (max-width: 1200px) {
   .contact-map iframe {

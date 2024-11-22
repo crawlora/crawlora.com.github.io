@@ -1,66 +1,56 @@
 ---
-import betaLaunchData from "../../../../src/data_files/betaLaunchContent.json";
+import betaLaunchData from '../../../../src/data_files/betaLaunchContent.json';
 
 const checkIcon =
-  "mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle";
+  'mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle';
 ---
 
-<section class='section pricing beta-launch bg-light'>
-  <div class='container'>
-    <div class='row justify-content-center'>
-      <div class='col-lg-8'>
-        <div class='title mb-5 text-center'>
-          <h6 class='fw-bold text-primary mb-0'>🚀 Beta Launch Exclusive</h6>
-          <h2 class='f-40 fs-1 fs-md-4'>
+<section class="section pricing beta-launch bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title mb-5 text-center">
+          <h6 class="fw-bold text-primary mb-0">🚀 Beta Launch Exclusive</h6>
+          <h2 class="f-40 fs-1 fs-md-4">
             Be the First to Try Our New Product!
           </h2>
-          <p class='text-muted mt-3'>
+          <p class="text-muted mt-3">
             Limited spots available for early adopters. Join now to shape the
             future of our product!
           </p>
         </div>
       </div>
     </div>
-    <div class='row align-items-center justify-content-center'>
+    <div class="row align-items-center justify-content-center">
       {
         betaLaunchData.map((offer) => (
-          <div class='col-lg-6'>
-            <div class='beta-item mt-lg-0 mt-4 overflow-hidden shadow-sm'>
-              <div class='topbar-header bg-primary py-2 text-center'>
-                <h6 class='fw-normal mb-0 text-white'>Exclusive Beta Offer</h6>
+          <div class="col-lg-6">
+            <div class="mt-lg-0 mt-4 overflow-hidden shadow-sm">
+              <div class="topbar-header bg-primary py-2 text-center">
+                <h6 class="fw-normal mb-0 text-white">Exclusive Beta Offer</h6>
               </div>
-              <div class='beta-content-box p-4'>
-                <div class='badge bg-primary fw-normal f-14 text-white'>
+              <div class="beta-content-box p-4">
+                <div class="badge bg-primary fw-normal f-14 text-white">
                   {offer.title}
                 </div>
-                <p class='text-dark mt-3'>{offer.description}</p>
-                <ul class='list-unstyled mt-4'>
+                <p class="text-dark mt-3">{offer.description}</p>
+                <ul class="list-unstyled mt-4">
                   {offer.features.map((feature) => (
-                    <li class='mt-2'>
+                    <li class="mt-2">
                       <i class={checkIcon} />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <div class='col-5 popover-button-email mt-5 p-0'>
-                  <button class='btn bg-gradiant'>
-                    <i class='mdi mdi-rocket-launch me-2' />
+                <div class="tally-popover-email-hero mt-5 p-0">
+                  <button class="btn bg-gradiant">
+                    <i class="mdi mdi-rocket-launch me-2" />
                     {offer.cta.text}
                   </button>
                 </div>
-
-                <div class='popover' id='tally-popover-email'>
-                  <iframe
-                    src='https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'
-                    width='100%'
-                    height='300'
-                    style='border: none;'
-                  />
-                  <button class='close-btn'>Close</button>
-                </div>
               </div>
-              <div class='beta-footer p-3 text-center'>
-                <p class='text-muted small mb-0'>
+              <div class="beta-footer p-3 text-center">
+                <p class="text-muted small mb-0">
                   {offer.spotsRemaining} spots left! Don’t miss out!
                 </p>
               </div>
