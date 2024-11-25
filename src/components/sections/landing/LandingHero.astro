@@ -16,7 +16,7 @@ const users = [
 ---
 
 <section
-  class="home-5"
+  class="home-5 relative"
   id="home"
   style={`background-image: url(${homeBg.src})`}
 >
@@ -33,20 +33,11 @@ const users = [
         <h1 class="f-40 fs-1 fs-md-4 mt-3">{homeSectionData.title}</h1>
         <p class="text-muted mt-3">{homeSectionData.description}</p>
 
-        <div class="col-4 popover-button mt-5 p-0">
+        <div class="col-4 tally-popover-email-hero mt-5 p-0">
           <button class="btn bg-gradiant"
             >{homeSectionData.ctaButton.text}</button
           >
         </div>
-        <div class="popover" id="tally-popover">
-          <iframe
-            src={homeSectionData.ctaButton.popoverLink}
-            width="100%"
-            height="300"
-            style="border: none;"></iframe>
-          <button id="close-popover" class="close-btn">Close</button>
-        </div>
-
         <div class="d-flex align-items-center mt-5">
           <div class="flex-shrink-0">
             <div class="more-profile d-flex">

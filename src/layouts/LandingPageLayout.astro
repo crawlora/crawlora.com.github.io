@@ -42,6 +42,16 @@ interface Props {
     <!-- NAVBAR -->
     <LandingPageNav />
     <main>
+      <div class="overlay-hero" id="tally-popover-email-hero">
+        <div class="popover-hero">
+          <iframe
+            src="https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            width="100%"
+            height="300"
+            style="border: none;"></iframe>
+          <button class="close-btn">Close</button>
+        </div>
+      </div>
       <slot />
     </main>
     <!-- footer section -->
@@ -68,5 +78,19 @@ interface Props {
       defer
       is:inline
       crossorigin="anonymous"></script>
+
+    <script is:inline>
+      document.addEventListener('click', (event) => {
+        if (event.target.closest('.tally-popover-email-hero')) {
+          document.getElementById('tally-popover-email-hero').style.display =
+            'flex';
+        }
+
+        if (event.target.closest('.close-btn')) {
+          document.getElementById('tally-popover-email-hero').style.display =
+            'none';
+        }
+      });
+    </script>
   </body>
 </html>

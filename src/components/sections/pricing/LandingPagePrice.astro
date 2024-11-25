@@ -1,84 +1,58 @@
 ---
-import pricingData from '@data/LandingPageprice.json';
+import betaLaunchData from '../../../../src/data_files/betaLaunchContent.json';
 
 const checkIcon =
   'mdi mdi-check-circle-outline f-20 text-primary me-2 align-middle';
-const closeIcon =
-  'mdi mdi-close-circle-outline f-20 text-danger me-2 align-middle';
 ---
 
-<section class="section pricing bg-light" id="pricing">
+<section class="section pricing beta-launch bg-light">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <div class="title mb-5 text-center">
-          <h6 class="fw-bold text-primary mb-0">What's Your Price!</h6>
-          <h2 class="f-40 fs-1 fs-md-4">Pricing plans!</h2>
+          <h6 class="fw-bold text-primary mb-0">🚀 Beta Launch Exclusive</h6>
+          <h2 class="f-40 fs-1 fs-md-4">
+            Be the First to Try Our New Product!
+          </h2>
+          <p class="text-muted mt-3">
+            Limited spots available for early adopters. Join now to shape the
+            future of our product!
+          </p>
         </div>
       </div>
     </div>
     <div class="row align-items-center justify-content-center">
       {
-        pricingData.map((plan) => (
-          <div class="col-lg-4">
-            <div
-              class={`price-item mt-lg-0 mt-4 overflow-hidden shadow-sm ${plan.id === 'startup' ? 'active' : ''}`}
-            >
-              {plan.id === 'startup' && (
-                <div class="topbar-header bg-primary py-2 text-center">
-                  <h6 class="fw-normal mb-0 text-white">Recommended For You</h6>
-                </div>
-              )}
-              <div class="price-up-box p-4">
-                <div class="badge bg-primary fw-normal f-14">{plan.name}</div>
-                <div class="price-tag mt-2">
-                  <h2
-                    class={
-                      plan.id === 'basic'
-                        ? 'f-40 mb-0 text-white'
-                        : 'text-dark f-40 mb-0'
-                    }
-                  >
-                    <sup class="f-22 fw-normal">$</sup>
-                    {plan.price}
-                    <sup class="f-16 fw-normal"> {plan.interval}</sup>
-                  </h2>
-                </div>
-                <p
-                  class={
-                    plan.id === 'basic'
-                      ? 'text-white-50 mb-1'
-                      : 'text-muted mb-1'
-                  }
-                >
-                  {plan.users}
-                </p>
-                <p
-                  class={
-                    plan.id === 'basic'
-                      ? 'text-white-50 mb-0'
-                      : 'text-muted mb-0'
-                  }
-                >
-                  {plan.description}
-                </p>
+        betaLaunchData.map((offer) => (
+          <div class="col-lg-6">
+            <div class="mt-lg-0 mt-4 overflow-hidden shadow-sm">
+              <div class="topbar-header bg-primary py-2 text-center">
+                <h6 class="fw-normal mb-0 text-white">Exclusive Beta Offer</h6>
               </div>
-              <div class="price-down-box p-4">
-                <ul class="list-unstyled">
-                  {plan.features.map((feature) => (
+              <div class="beta-content-box p-4">
+                <div class="badge bg-primary fw-normal f-14 text-white">
+                  {offer.title}
+                </div>
+                <p class="text-dark mt-3">{offer.description}</p>
+                <ul class="list-unstyled mt-4">
+                  {offer.features.map((feature) => (
                     <li class="mt-2">
-                      <i class={feature.enabled ? checkIcon : closeIcon} />
-                      {feature.text}
+                      <i class={checkIcon} />
+                      {feature}
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={plan.cta.link}
-                  class={`btn btn-sm ${plan.id === 'basic' ? 'text-primary' : 'btn-primary'} mt-3`}
-                >
-                  <i class="mdi mdi-check-all me-2" />
-                  {plan.cta.text}
-                </a>
+                <div class="tally-popover-email-hero mt-5 p-0">
+                  <button class="btn bg-gradiant">
+                    <i class="mdi mdi-rocket-launch me-2" />
+                    {offer.cta.text}
+                  </button>
+                </div>
+              </div>
+              <div class="beta-footer p-3 text-center">
+                <p class="text-muted small mb-0">
+                  {offer.spotsRemaining} spots left! Don’t miss out!
+                </p>
               </div>
             </div>
           </div>
