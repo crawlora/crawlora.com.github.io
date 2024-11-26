@@ -72,7 +72,7 @@ const data = await getDownloadLinks()
               
               <!-- Download Button -->
               <a
-                href={link.url}
+                href="/apply"
                 class="mt-4 inline-flex items-center rounded-md bg-orange-500 px-6 py-2 text-sm font-semibold text-white transition duration-200 hover:bg-orange-600"
               >
                 <Icon class="h-4 w-4 mr-2 text-white" name="download" />
@@ -131,8 +131,8 @@ function getOSAndArch() {
   );
   if (match) {
     document.getElementById("download-button").innerHTML = `
-      <a href="${match.url}" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
-        Download For ${match.name}
+      <a href="/apply" class="rounded-md bg-orange-500 px-8 py-4 text-white text-lg font-semibold transition duration-300 transform hover:scale-105 hover:bg-orange-600 shadow-lg">
+        Apply For ${match.name}
       </a>
     `;
     

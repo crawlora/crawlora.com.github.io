@@ -12,8 +12,8 @@
     { "label": "Contact", "href": "/contact" }
   ],
   "button": {
-    "label": "Download",
-    "href": "/download",
+    "label": "Apply",
+    "href": "/apply",
     "class": "btn bg-gradiant"
   }
 }

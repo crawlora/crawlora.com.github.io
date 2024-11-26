@@ -13,6 +13,6 @@
       { "text": "No transaction fees", "enabled": true },
       { "text": "Unlimited Storage", "enabled": true }
     ],
-    "cta": { "text": "Download Now", "link": "/download" }
+    "cta": { "text": "Apply Now", "link": "/apply" }
   }
 ]
