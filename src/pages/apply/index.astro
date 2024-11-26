@@ -1,135 +1,121 @@
 ---
-import { SITE } from '@/data_files/constants';
-import { Image } from 'astro:assets';
-import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from "@/data_files/constants";
+import { Image } from "astro:assets";
+import MainLayout from "@/layouts/MainLayout.astro";
 
-import userImage1 from '../../pages/images/user/img-1.jpg';
-import userImage2 from '../../pages/images/user/img-2.jpg';
-import userImage3 from '../../pages/images/user/img-3.jpg';
+import userImage1 from "../../pages/images/user/img-1.jpg";
+import userImage2 from "../../pages/images/user/img-2.jpg";
+import userImage3 from "../../pages/images/user/img-3.jpg";
 
 const pageTitle: string = `Apply | ${SITE.title}`;
 
 const users = [
-  { imgSrc: userImage1, alt: 'User 1' },
-  { imgSrc: userImage2, alt: 'User 2' },
-  { imgSrc: userImage3, alt: 'User 3' },
+  { imgSrc: userImage1, alt: "User 1" },
+  { imgSrc: userImage2, alt: "User 2" },
+  { imgSrc: userImage3, alt: "User 3" },
 ];
 ---
 
 <MainLayout
   title={pageTitle}
   structuredData={{
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': 'https://crawlora.com/apply',
-    url: 'https://crawlora.com/apply',
-    name: 'Apply | Crawlora',
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://crawlora.com/apply",
+    url: "https://crawlora.com/apply",
+    name: "Apply | Crawlora",
     description:
       "Stay up-to-date with the latest trends and developments in the data and crawling industry with insights from Crawlora's team of industry experts.",
     isPartOf: {
-      '@type': 'WebSite',
-      url: 'https://crawlora.com',
-      name: 'Crawlora',
+      "@type": "WebSite",
+      url: "https://crawlora.com",
+      name: "Crawlora",
       description:
-        'Crawlora offers top-tier data tools and expert services to meet all your project needs.',
+        "Crawlora offers top-tier data tools and expert services to meet all your project needs.",
     },
-    inLanguage: 'en-US',
+    inLanguage: "en-US",
   }}
 >
-  <!-- <section
-    class="mx-auto mb-14 max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
-  >
-    <div class="text-center">
-      <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl">
-        Apply to Crawlora
-      </h1>
-      <p class="mt-4 text-lg text-gray-600">
-        Join our team of experts and help shape the future of data crawling.
-      </p>
-    </div>
-
-    <div
-      class="popover-hero relative mx-auto mt-8 max-w-xl rounded-lg bg-white p-6 shadow-lg"
-    >
-      <iframe
-        src="https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        width="100%"
-        height="300"
-        class="rounded-md border border-gray-200"
-        style="border: none;"></iframe>
-    </div>
-  </section> -->
   <section
-    class="apply-section from-yellow-300 relative bg-gradient-to-b via-white to-white px-4 pb-16 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+    class='apply-section from-yellow-300 relative bg-gradient-to-b via-white to-white px-4 pb-16 pt-16 dark:via-gray-900 dark:to-gray-800 sm:px-6 lg:px-8 2xl:max-w-full'
   >
     <div
-      class="absolute inset-0 -z-10 bg-gradient-to-t from-[#ff7e22] to-transparent opacity-50"
+      class='absolute inset-0 -z-10 bg-gradient-to-t to-transparent opacity-50'
     >
     </div>
-    <div class="container mx-auto max-w-4xl text-center">
+    <div class='container mx-auto max-w-4xl text-center'>
       <!-- Logo -->
-      <div class="mb-10">
-        <h1 class="!text-primary text-3xl font-extrabold">
+      <div class='mb-10'>
+        <h1 class='!text-primary text-3xl font-extrabold'>
           <span
-            class="from-blue-600 to-purple-600 bg-gradient-to-r bg-clip-text text-[#fa5a15]"
+            class='from-blue-600 to-purple-600 bg-gradient-to-r bg-clip-text text-[#fa5a15] dark:text-[#faa23f]'
             >Crawlora</span
           >
         </h1>
       </div>
 
       <!-- Headline -->
-      <div class="mb-8">
-        <h2 class="text-5xl font-bold leading-tight text-gray-900">
-          Ready to unlock the power of web data? <br />
+      <div class='mb-8'>
+        <h2
+          class='text-5xl font-bold leading-tight text-gray-900 dark:text-gray-100'
+        >
+          Ready to unlock the power of web data scraping? <br />
           <span
-            class="from-blue-500 to-green-500 bg-gradient-to-r bg-clip-text"
+            class='from-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-4xl dark:text-yellow-400'
           >
             Apply for free now!
           </span>
         </h2>
         <div
-          class="popover-hero relative mx-auto mt-8 max-w-xl rounded-lg bg-[#ebad7985] p-4"
+          class='popover-hero dark:from-orange-700 relative mx-auto mt-8 w-full max-w-xl rounded-lg bg-gradient-to-tr from-[#FF512F] to-[#F09819] p-6 shadow-xl dark:to-orange-600'
         >
           <iframe
-            src="https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            width="100%"
-            height="300"
-            class="rounded-md border border-gray-200"
-            style="border: none;"></iframe>
+            src='https://tally.so/embed/3qEW67?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'
+            width='100%'
+            height='300'
+            class='rounded-md border border-gray-200 dark:border-gray-700'
+            style='border: none;'
+            aria-label='Apply Form'></iframe>
         </div>
-        <p class="mt-4 text-lg text-gray-600">
+        <p class='mt-4 text-lg text-gray-600 dark:text-gray-300'>
           If you are accepted, we’ll onboard you within <strong
             >24-48 hours</strong
           >.
         </p>
       </div>
 
-      <div class="mt-5 flex items-center justify-center">
-        <div class="flex-shrink-0">
-          <div class="more-profile flex space-x-[-15px]">
+      <div class='mt-5 flex items-center justify-center'>
+        <div class='flex-shrink-0'>
+          <div class='more-profile flex space-x-[-15px]'>
             {
               users.map((user) => (
-                <div class="top-child relative">
+                <div class='top-child relative'>
                   <Image
                     src={user.imgSrc}
                     alt={user.alt}
-                    class="border-3 h-12 w-12 rounded-full border-white object-cover"
+                    class='border-3 h-12 w-12 rounded-full border-white object-cover dark:border-gray-900'
                   />
                 </div>
               ))
             }
-            <div class="relative">
+            <div class='relative'>
               <div
-                class="border-3 flex h-12 w-12 items-center justify-center rounded-full border-white bg-[#fa7f15] font-medium text-white"
+                class='border-3 flex h-12 w-12 items-center justify-center rounded-full border-white bg-[#fa7f15] font-medium text-white dark:bg-[#fc9245]'
               >
                 99+
               </div>
             </div>
           </div>
         </div>
-        <div class="ml-3">
-          <h6 class="mb-0 text-start font-semibold text-gray-500">99+ user</h6>
-          <p class="mb-0 text-start text-xs font-semibold text-gray-500">
+        <div class='ml-3'>
+          <h6
+            class='mb-0 text-start font-semibold text-gray-500 dark:text-gray-300'
+          >
+            99+ users
+          </h6>
+          <p
+            class='mb-0 text-start text-xs font-semibold text-gray-500 dark:text-gray-400'
+          >
             Turning Data into Actionable Insights, Seamlessly.
           </p>
         </div>
@@ -137,6 +123,7 @@ const users = [
     </div>
   </section>
 </MainLayout>
+
 <style>
   .more-profile .top-child img {
     border-radius: 50px;
