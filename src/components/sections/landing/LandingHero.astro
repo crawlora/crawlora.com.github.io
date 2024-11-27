@@ -1,71 +1,118 @@
 ---
-import homeSectionData from "@data/LandingPageHome.json";
+import homeSectionData from '@data/LandingPageHome.json';
 
-import homeImage from "../../../pages/images/home/home-5.png";
-import userImage1 from "../../../pages/images/user/img-1.jpg";
-import userImage2 from "../../../pages/images/user/img-2.jpg";
-import userImage3 from "../../../pages/images/user/img-3.jpg";
-import userImage4 from "../../../pages/images/user/img-4.jpg";
-import homeBg from "../../../pages/images/home/home5-bg.png";
-import { Image } from "astro:assets";
+import homeImage from '../../../pages/images/home/home-5.png';
+import userImage1 from '../../../pages/images/user/img-1.jpg';
+import userImage2 from '../../../pages/images/user/img-2.jpg';
+import userImage3 from '../../../pages/images/user/img-3.jpg';
+import userImage4 from '../../../pages/images/user/img-4.jpg';
+import homeBg from '../../../pages/images/home/home5-bg.png';
+import { Image } from 'astro:assets';
 
 const users = [
-  { imgSrc: userImage1, alt: "User 1" },
-  { imgSrc: userImage2, alt: "User 2" },
-  { imgSrc: userImage3, alt: "User 3" },
-  { imgSrc: userImage4, alt: "User 4" },
+  { imgSrc: userImage1, alt: 'User 1' },
+  { imgSrc: userImage2, alt: 'User 2' },
+  { imgSrc: userImage3, alt: 'User 3' },
+  { imgSrc: userImage4, alt: 'User 4' },
 ];
 ---
 
 <section
-  class='home-5 relative'
-  id='home'
+  class="home-5 relative"
+  id="home"
   style={`background-image: url(${homeBg.src})`}
 >
-  <div class='container'>
-    <div class='row align-items-center'>
-      <div class='col-lg-6'>
-        <div class='waav'>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="waav">
           {
-            Array.from("CRAWLORA").map((letter, index) => (
+            Array.from('CRAWLORA').map((letter, index) => (
               <span style={`--a:${index + 1}`}>{letter}</span>
             ))
           }
         </div>
-        <h1 class='f-40 fs-1 fs-md-4 mt-3'>{homeSectionData.title}</h1>
-        <p class='text-muted mt-3'>{homeSectionData.description}</p>
+        <h1 class="f-40 fs-1 fs-md-4 mt-3">{homeSectionData.title}</h1>
+        <p class="text-muted mt-3">{homeSectionData.description}</p>
 
-        <div class='col-4 tally-popover-email-hero mt-5 p-0'>
-          <button class='btn bg-gradiant'
+        <div class="col-4 tally-popover-email-hero mt-5 p-0">
+          <button class="btn bg-gradiant"
             >{homeSectionData.ctaButton.text}</button
           >
         </div>
-        <div class='d-flex align-items-center mt-5'>
-          <div class='flex-shrink-0'>
-            <div class='more-profile d-flex'>
+        <div class="d-flex align-items-center mt-5">
+          <div class="more-profile-wrap">
+            <div class="more-profile">
               {
-                users.map((user) => (
-                  <div class='avatar-sm top-child'>
+                users.concat(users).map((user, index) => (
+                  <div class="top-child">
                     <Image
                       src={user.imgSrc}
                       alt={user.alt}
-                      class='img-fluid avatar-sm'
+                      class="border-3 h-12 w-12 rounded-full border-white object-cover"
+                    />
+                  </div>
+                ))
+              }
+              {
+                users.concat(users).map((user, index) => (
+                  <div class="top-child">
+                    <Image
+                      src={user.imgSrc}
+                      alt={user.alt}
+                      class="border-3 h-12 w-12 rounded-full border-white object-cover dark:border-gray-900"
                     />
                   </div>
                 ))
               }
             </div>
           </div>
-          <div class='flex-grow-1 ms-2'>
-            <p class='fw-semibold text-muted mb-0 text-[12px]'>
+          <div class="flex-grow-1 ms-2">
+            <p class="fw-semibold text-muted mb-0 text-[12px]">
               {homeSectionData.userCountDescription}
             </p>
           </div>
         </div>
       </div>
-      <div class='col-lg-6'>
-        <Image src={homeImage} alt='Home Image' class='img-fluid' />
+      <div class="col-lg-6">
+        <Image src={homeImage} alt="Home Image" class="img-fluid" />
       </div>
     </div>
   </div>
 </section>
+<style>
+  .more-profile-wrap {
+    overflow: hidden;
+    border-radius: 50px;
+    width: 114px; /* Match container width */
+    position: relative;
+  }
+
+  .more-profile {
+    display: flex;
+    width: calc(200% + 36px); /* Account for duplicates */
+    animation: scroll-left 8s linear infinite;
+  }
+
+  .more-profile .top-child {
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+
+  .more-profile img {
+    border-radius: 50%;
+    border: 3px solid #fff;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+  }
+
+  /* Keyframes for smooth looping */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0); /* Start position */
+    }
+    100% {
+      transform: translateX(-50%); /* Exactly half of the total width */
+    }
+  }
+</style>
