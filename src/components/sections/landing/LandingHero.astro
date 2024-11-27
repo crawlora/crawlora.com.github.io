@@ -5,13 +5,16 @@ import homeImage from '../../../pages/images/home/home-5.png';
 import userImage1 from '../../../pages/images/user/img-1.jpg';
 import userImage2 from '../../../pages/images/user/img-2.jpg';
 import userImage3 from '../../../pages/images/user/img-3.jpg';
+import userImage4 from '../../../pages/images/user/img-4.jpg';
 import homeBg from '../../../pages/images/home/home5-bg.png';
 import { Image } from 'astro:assets';
+import UserSlider from '@/components/ui/userSlider/UserSlider.astro';
 
 const users = [
   { imgSrc: userImage1, alt: 'User 1' },
   { imgSrc: userImage2, alt: 'User 2' },
   { imgSrc: userImage3, alt: 'User 3' },
+  { imgSrc: userImage4, alt: 'User 4' },
 ];
 ---
 
@@ -39,26 +42,8 @@ const users = [
           >
         </div>
         <div class="d-flex align-items-center mt-5">
-          <div class="flex-shrink-0">
-            <div class="more-profile d-flex">
-              {
-                users.map((user) => (
-                  <div class="avatar-sm top-child">
-                    <Image
-                      src={user.imgSrc}
-                      alt={user.alt}
-                      class="img-fluid avatar-sm"
-                    />
-                  </div>
-                ))
-              }
-              <div class="avatar-sm top-child">
-                <p class="f-14 mb-0">99+</p>
-              </div>
-            </div>
-          </div>
-          <div class="flex-grow-1 ms-3">
-            <h6 class="mb-0">{homeSectionData.userCountText}</h6>
+          <UserSlider users={users} />
+          <div class="flex-grow-1 ms-2">
             <p class="fw-semibold text-muted mb-0 text-[12px]">
               {homeSectionData.userCountDescription}
             </p>

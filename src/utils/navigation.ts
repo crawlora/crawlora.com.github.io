@@ -3,10 +3,10 @@ const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Apps", url: "/apps" },
   { name: "Services", url: "/services" },
-  { name: "Pricing", url: "/pricing" },
+  // { name: "Pricing", url: "/pricing" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
-  { name: "Download", url: "/download" },
+  { name: "Apply", url: "/apply" },
   {
     name: "Login",
     url: "https://app.crawlora.com?cta=homepage-header-login-btn",
@@ -47,42 +47,45 @@ const socialLinks = {
 
 const FooterSocialLinks = [
   {
-    "href": "https://join.slack.com/t/dataminer-site/shared_invite/zt-2lvmboppf-FPPVWGwXDz6YAaLC5aYGTg",
-    "icon": "slackFooter"
+    href: "https://join.slack.com/t/dataminer-site/shared_invite/zt-2lvmboppf-FPPVWGwXDz6YAaLC5aYGTg",
+    icon: "slackFooter",
   },
   {
-    "href": "https://x.com/crawlora",
-    "icon": "xFooter"
+    href: "https://x.com/crawlora",
+    icon: "xFooter",
   },
   {
-    "href": "https://www.linkedin.com/company/crawlora/",
-    "icon": "linkedIn"
+    href: "https://www.linkedin.com/company/crawlora/",
+    icon: "linkedIn",
   },
   {
-    "href": "https://github.com/crawlora-com",
-    "icon": "githubFooter"
-  }
-]
+    href: "https://github.com/crawlora-com",
+    icon: "githubFooter",
+  },
+];
 
-const FooterSection =[
+const FooterSection = [
   {
-    "title": "Ecosystem",
-    "links": [
-      { "text": "Documentation", "href": "/welcome-to-docs/" },
-      { "text": "Apps", "href": "/apps" },
-      { "text": "Api Doc", "href": "https://apidoc.crawlora.com/?cta=homepage-footer" }
-    ]
+    title: "Ecosystem",
+    links: [
+      { text: "Documentation", href: "/welcome-to-docs/" },
+      { text: "Apps", href: "/apps" },
+      {
+        text: "Api Doc",
+        href: "https://apidoc.crawlora.com/?cta=homepage-footer",
+      },
+    ],
   },
   {
-    "title": "Info",
-    "links": [
-      { "text": "Use Cases", "href": "#" },
-      { "text": "Blog", "href": "/blog" },
-      { "text": "FAQs", "href": "/faq" },
-      { "text": "Customers", "href": "#" }
-    ]
-  }
-] 
+    title: "Info",
+    links: [
+      { text: "Use Cases", href: "#" },
+      { text: "Blog", href: "/blog" },
+      { text: "FAQs", href: "/faq" },
+      { text: "Customers", href: "#" },
+    ],
+  },
+];
 
 export default {
   FooterSection,

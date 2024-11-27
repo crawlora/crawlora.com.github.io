@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+
+const {
+  users = [],
+  containerWidth = '114px', // Default container width
+  imageSize = '48px', // Default size for images
+  animationDuration = '8s', // Default animation speed
+  overlapAmount = '12px', // Amount of overlap between images
+} = Astro.props;
+---
+
+<div class="user-slides-wrap" style={`width: ${containerWidth};`}>
+  <div
+    class="user-slides"
+    style={`width: calc(${users.length * 2 * (parseInt(imageSize) - parseInt(overlapAmount))}px);`}
+  >
+    {
+      users
+        .concat(users)
+        .map((user: { imgSrc: string; alt: string }, index: number) => (
+          <div class="slide-item">
+            <Image
+              src={user.imgSrc as any}
+              alt={user.alt}
+              class="profile-img"
+              style={`width: ${imageSize}; height: ${imageSize};`}
+            />
+          </div>
+        ))
+    }
+  </div>
+</div>
+
+<style>
+  .user-slides-wrap {
+    overflow: hidden;
+    border-radius: 50px;
+    position: relative;
+  }
+
+  .user-slides {
+    display: flex;
+    animation: scroll-left var(--duration, 8s) linear infinite;
+  }
+
+  .slide-item {
+    flex-shrink: 0;
+    width: calc(var(--image-size, 48px)); /* Match the image size */
+    margin-left: calc(-1 * var(--overlap-amount, 12px)); /* Apply overlap */
+  }
+
+  .profile-img {
+    border-radius: 50%;
+    border: 3px solid #fff;
+    object-fit: cover;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+<script is:inline>
+  // Set dynamic styles for duration, image size, and overlap via CSS variables
+  document.documentElement.style.setProperty(
+    '--duration',
+    `${animationDuration}`
+  );
+  document.documentElement.style.setProperty('--image-size', `${imageSize}`);
+  document.documentElement.style.setProperty(
+    '--overlap-amount',
+    `${overlapAmount}`
+  );
+</script>
