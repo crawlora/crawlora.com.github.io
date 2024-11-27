@@ -4,12 +4,26 @@
     "brandComponent": "BrandLogo"
   },
   "links": [
-    { "label": "Home", "href": "/" },
-    { "label": "Apps", "href": "/apps" },
-    { "label": "Services", "href": "/services" },
-    { "label": "Pricing", "href": "/pricing" },
-    { "label": "Blogs", "href": "/blog" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Apps",
+      "href": "/apps"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Blogs",
+      "href": "/blog"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ],
   "button": {
     "label": "Apply",
