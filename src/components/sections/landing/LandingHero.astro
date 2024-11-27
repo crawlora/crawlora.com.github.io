@@ -8,6 +8,7 @@ import userImage3 from '../../../pages/images/user/img-3.jpg';
 import userImage4 from '../../../pages/images/user/img-4.jpg';
 import homeBg from '../../../pages/images/home/home5-bg.png';
 import { Image } from 'astro:assets';
+import UserSlider from '@/components/ui/userSlider/UserSlider.astro';
 
 const users = [
   { imgSrc: userImage1, alt: 'User 1' },
@@ -41,32 +42,7 @@ const users = [
           >
         </div>
         <div class="d-flex align-items-center mt-5">
-          <div class="more-profile-wrap">
-            <div class="more-profile">
-              {
-                users.concat(users).map((user, index) => (
-                  <div class="top-child">
-                    <Image
-                      src={user.imgSrc}
-                      alt={user.alt}
-                      class="border-3 h-12 w-12 rounded-full border-white object-cover"
-                    />
-                  </div>
-                ))
-              }
-              {
-                users.concat(users).map((user, index) => (
-                  <div class="top-child">
-                    <Image
-                      src={user.imgSrc}
-                      alt={user.alt}
-                      class="border-3 h-12 w-12 rounded-full border-white object-cover dark:border-gray-900"
-                    />
-                  </div>
-                ))
-              }
-            </div>
-          </div>
+          <UserSlider users={users} />
           <div class="flex-grow-1 ms-2">
             <p class="fw-semibold text-muted mb-0 text-[12px]">
               {homeSectionData.userCountDescription}
@@ -80,39 +56,3 @@ const users = [
     </div>
   </div>
 </section>
-<style>
-  .more-profile-wrap {
-    overflow: hidden;
-    border-radius: 50px;
-    width: 114px; /* Match container width */
-    position: relative;
-  }
-
-  .more-profile {
-    display: flex;
-    width: calc(200% + 36px); /* Account for duplicates */
-    animation: scroll-left 8s linear infinite;
-  }
-
-  .more-profile .top-child {
-    flex-shrink: 0; /* Prevent shrinking */
-  }
-
-  .more-profile img {
-    border-radius: 50%;
-    border: 3px solid #fff;
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-  }
-
-  /* Keyframes for smooth looping */
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0); /* Start position */
-    }
-    100% {
-      transform: translateX(-50%); /* Exactly half of the total width */
-    }
-  }
-</style>
