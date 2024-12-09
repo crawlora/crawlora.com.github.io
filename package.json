@@ -28,7 +28,7 @@
     "@preline/tabs": "^2.4.1",
     "@vercel/nft": "^0.27.6",
     "@webcomponents/template-shadowroot": "^0.2.1",
-    "astro": "^4.16.13",
+    "astro": "^4.16.17",
     "astro-compress": "^2.3.5",
     "astro-compressor": "^0.4.1",
     "axios": "^1.7.7",
